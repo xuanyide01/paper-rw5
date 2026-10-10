@@ -40,33 +40,37 @@ def convert(key):
         # Choice captions are hand-checked from these images, not guessed from route names.
     if kind=='fgimage':
         im=im.convert('RGBA');box=im.getchannel('A').getbbox();assert box,key
-        im=im.crop(box);im.thumbnail((200,256),Image.Resampling.LANCZOS)
+        im=im.crop(box);im=im.crop((0,0,im.width,max(1,round(im.height*0.75))));im.thumbnail((128,192),Image.Resampling.LANCZOS)
         ext='png';buf=io.BytesIO();im.save(buf,format='PNG',compress_level=9,optimize=True)
     else:
         # Preserve full artwork; black only composites transparent overlays where present.
         if im.mode=='RGBA':
             canvas=Image.new('RGBA',im.size,(0,0,0,255));canvas.alpha_composite(im);im=canvas.convert('RGB')
         else:im=im.convert('RGB')
-        im.thumbnail((320,240),Image.Resampling.LANCZOS)
-        ext='jpg';buf=io.BytesIO();im.save(buf,format='JPEG',quality=68,optimize=True,progressive=False,subsampling=2)
+        im.thumbnail((256,192),Image.Resampling.LANCZOS)
+        ext='jpg';buf=io.BytesIO();im.save(buf,format='JPEG',quality=64,optimize=True,progressive=False,subsampling=2)
     data=buf.getvalue();digest=hashlib.sha256(data).hexdigest();filename=digest[:20]+'.'+ext
     (OUT/filename).write_bytes(data)
-    return key,{'file':filename,'kind':kind,'sourceSize':original,'size':im.size,'bytes':len(data),'sha256':digest}
+    return key,{'file':filename,'kind':kind,'sourceSize':original,'portraitBottomCrop':0.25 if kind=='fgimage' else 0,'size':im.size,'bytes':len(data),'sha256':digest}
 results={}
 with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
     for count,(key,row) in enumerate(pool.map(convert,sorted(keys)),1):
         results[key]=row
         if count%100==0:print('IMAGES',count,len(keys),flush=True)
 assets={key:row['file'] for key,row in results.items()}
+for old in OUT.iterdir():
+    if old.name not in set(assets.values()) and re.fullmatch(r'[0-9a-f]{20}\.(png|jpg)',old.name):
+        assert old.resolve().is_relative_to(OUT.resolve())
+        old.unlink()
 (ROOT/'src/common/assets.js').write_text('export const assets='+json.dumps(assets,ensure_ascii=False,separators=(',',':'))+';\nexport function imagePath(name){if(!assets[name])throw Error("图片不存在："+name);return "/common/images/"+assets[name];}\n',encoding='utf8')
 dimensions={r['file']:r['size'] for r in results.values() if r['kind']=='fgimage'}
-(ROOT/'src/common/portrait-layout.js').write_text('const dimensions='+json.dumps(dimensions,separators=(',',':'))+';\nexport function portraitBox(path,count,index){const name=String(path||"").split("/").pop(),size=dimensions[name]||[180,256],cell=count>=3?144:count===2?216:432,maxWidth=count===1?280:cell,scale=Math.min(maxWidth/size[0],286/size[1]),width=Math.round(size[0]*scale),height=Math.round(size[1]*scale);return {width,height,left:Math.round(index*cell+(cell-width)/2),top:286-height};}\n',encoding='utf8')
+(ROOT/'src/common/portrait-layout.js').write_text('const dimensions='+json.dumps(dimensions,separators=(',',':'))+';\nexport function portraitBox(path,count,index){const name=String(path||"").split("/").pop(),size=dimensions[name]||[144,224],cell=count>=3?112:count===2?168:336,maxWidth=count===1?224:cell,scale=Math.min(maxWidth/size[0],240/size[1]),width=Math.round(size[0]*scale),height=Math.round(size[1]*scale);return {width,height,left:Math.round(index*cell+(cell-width)/2),top:240-height};}\n',encoding='utf8')
 (ROOT/'src/common/gallery.txt').write_text(json.dumps(gallery,ensure_ascii=False,separators=(',',':')),encoding='utf8')
 # Title and icon use the game's own artwork. The requested icon shape is circular.
 title_src=records['title_bg'];im=Image.open(io.BytesIO(payload(title_src[0],title_src[1]))).convert('RGBA')
-title=im.copy();title.thumbnail((432,286),Image.Resampling.LANCZOS);title.save(ROOT/'src/common/title_bg.png',compress_level=9)
-w,h=im.size;side=min(w,h);icon=im.crop(((w-side)//2,(h-side)//2,(w+side)//2,(h+side)//2)).resize((192,192),Image.Resampling.LANCZOS)
-mask=Image.new('L',(192,192),0);ImageDraw.Draw(mask).ellipse((0,0,191,191),fill=255);icon.putalpha(mask);icon.save(ROOT/'src/common/logo.png',compress_level=9)
+title=im.copy();title.thumbnail((336,240),Image.Resampling.LANCZOS);title.save(ROOT/'src/common/title_bg.png',compress_level=9)
+w,h=im.size;side=min(w,h);icon=im.crop(((w-side)//2,(h-side)//2,(w+side)//2,(h+side)//2)).resize((128,128),Image.Resampling.LANCZOS)
+mask=Image.new('L',(128,128),0);ImageDraw.Draw(mask).ellipse((0,0,127,127),fill=255);icon.putalpha(mask);icon.save(ROOT/'src/common/logo.png',compress_level=9)
 report={'references':len(refs),'converted':len(results),'uniqueFiles':len(set(assets.values())),'bytes':sum(p.stat().st_size for p in OUT.iterdir()),'galleryImages':len(gallery),'galleryGroups':len(set(x['group'] for x in gallery)),'missing':missing,'images':results}
 (ROOT/'reports/image-conversion.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf8')
 print(json.dumps({k:v for k,v in report.items() if k!='images'},ensure_ascii=False),flush=True)

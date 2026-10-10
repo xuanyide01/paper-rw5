@@ -12,7 +12,7 @@ package=root/'dist'/f'{manifest["package"]}.debug.{manifest["versionName"]}.rpk'
 report=audit(package)
 assert report['bytes']<=25000000
 z=zipfile.ZipFile(package)
-assert json.loads(z.read('manifest.json'))['package']=='com.codex.paper.rw5'
+assert json.loads(z.read('manifest.json'))['package']==manifest['package']
 images=0;pngs=0
 for name in z.namelist():
     if name.endswith('/'):continue
@@ -21,13 +21,13 @@ for name in z.namelist():
         assert source.exists() and z.read(name)==source.read_bytes(),name
     if name.endswith(('.png','.jpg')):
         im=Image.open(io.BytesIO(z.read(name)));im.load();images+=1
-        if '/images/' in name:assert im.width<=320 and im.height<=256,name
+        if '/images/' in name:assert im.width<=256 and im.height<=192,name
         if name.endswith('.png'):
             pngs+=1
             if '/images/' in name:assert im.mode=='RGBA',name
 logo=Image.open(io.BytesIO(z.read('common/logo.png')))
-assert logo.size==(192,192) and logo.mode=='RGBA'
-assert all(logo.getpixel(pt)[3]==0 for pt in [(0,0),(191,0),(0,191),(191,191)])
+assert logo.size==(128,128) and logo.mode=='RGBA'
+assert all(logo.getpixel(pt)[3]==0 for pt in [(0,0),(127,0),(0,127),(127,127)])
 default_path=Path(sys.argv[1]) if len(sys.argv)>1 else root.parent/'clannad-probe/native-default-font.ttf'
 default=TTFont(default_path).getBestCmap()
 extra=TTFont(io.BytesIO(z.read('common/paper-extra.otf'))).getBestCmap()

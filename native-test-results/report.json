@@ -1,0 +1,51 @@
+{
+  "version": "0.1.0",
+  "result": "passed",
+  "runtime": "official vela-watch-5.0, API-1 application, NOT Band 8 Pro firmware",
+  "screen": [
+    336,
+    480
+  ],
+  "emulatorRAMMB": 128,
+  "deviceFlavor": "band",
+  "physicalDeviceTested": false,
+  "packageSha256": "44615cae8b891243bff5047c7af0712096a32e16676e72d377e0c348013e72ca",
+  "coldBoot30Slots": true,
+  "pendingChoiceSaveSlots": [
+    27,
+    28,
+    29,
+    30
+  ],
+  "guide": "https://steamcommunity.com/sharedfiles/filedetails/?id=3698221481",
+  "endings": [
+    {
+      "name": "伏见理央",
+      "endingScene": 43
+    },
+    {
+      "name": "月社妃",
+      "endingScene": 40
+    },
+    {
+      "name": "游行寺夜子",
+      "endingScene": 47
+    },
+    {
+      "name": "珂莉莎贝丽尔",
+      "endingScene": 8
+    },
+    {
+      "name": "日向彼方",
+      "endingScene": 10
+    }
+  ],
+  "checks": [
+    "30 distinct save positions restore after full emulator cold boot",
+    "all seven route directories refresh",
+    "80 groups / 415 CG entries and difference cycling",
+    "save/load at all four choices",
+    "five guide policies reach native endings",
+    "repeated chapter skip cannot bypass a choice"
+  ]
+}

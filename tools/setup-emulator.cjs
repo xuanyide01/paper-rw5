@@ -7,17 +7,22 @@ const manager = new VvdManager({ sdkHome: process.env.WATCH_SDK_HOME||path.join(
   // Download the custom-size image and only the host tools this instance uses.
   manager.hasSDKPartUpdate = async () => [SDKParts.EMULATOR, SDKParts.QA, SDKParts.SKINS, SDKParts.MODEM_SIMULATOR]
     .filter(part => !fs.existsSync(manager.getSDKPart(part)));
-  const dl = await manager.downloadSDK({ cliProgress: false, parallelDownloads: 4, parallelStreams: 3,
-    imageTypeArr: [VelaImageType.VELA_WATCH_5] });
-  let last = 0;
-  dl.on('progress', p => { if (Date.now() - last > 12000) { last = Date.now(); console.log('SDK', p.formattedPercentage, p.formatTotal, p.formattedSpeed); }});
-  await dl.downlodPromise;
-  const name = 'PaperRW5-432x514';
+  const parts=await manager.hasSDKPartUpdate();
+  if(parts.length || !fs.existsSync(manager.getLocalSystemPath(VelaImageType.VELA_WATCH_5)||'')) {
+    const dl = await manager.downloadSDK({ cliProgress: false, parallelDownloads: 4, parallelStreams: 3,
+      imageTypeArr: [VelaImageType.VELA_WATCH_5] });
+    let last = 0;
+    dl.on('progress', p => { if (Date.now() - last > 12000) { last = Date.now(); console.log('SDK', p.formattedPercentage, p.formatTotal, p.formattedSpeed); }});
+    await dl.downlodPromise;
+  }
+  const name = 'PaperBand8Pro-336x480';
   if (!manager.getVvdList().some(x => x.name === name || x.vvdName === name)) {
-    manager.createVvd({ name, arch: IVvdArchType.arm, width: '432', height: '514', density: '320',
-      shape: 'rect', flavor: 'watch', customLcdRadius: '24', imageType: VelaImageType.VELA_WATCH_5,
+    manager.createVvd({ name, arch: IVvdArchType.arm, width: '336', height: '480', density: '320',
+      shape: 'rect', flavor: 'band', customLcdRadius: '20', imageType: VelaImageType.VELA_WATCH_5,
       imageDir: path.dirname(manager.getLocalSystemPath(VelaImageType.VELA_WATCH_5)) });
   }
+  const config=path.join(manager.vvdHome,name+'.vvd/config.ini');
+  fs.writeFileSync(config,fs.readFileSync(config,'utf8').replace(/^hw.ramSize=.*$/m,'hw.ramSize=128'));
   // The Windows Vela launcher ignores ANDROID_AVD_HOME for VVD lookup.
   // Register only this device in its default folder; the images stay in home.
   const registration = path.join(require('os').homedir(), '.vela', 'vvd');

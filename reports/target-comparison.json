@@ -1,0 +1,16 @@
+{
+  "rw5PackageSha256": "7bd9dc7d67602d2577cc76c8e181edcd837b31a79a9a995540af5c0dea54edf4",
+  "identicalFiles": 143,
+  "engineStoryGuideTargetsAndGalleryUnchanged": true,
+  "mainTargetScreen": [
+    432,
+    514
+  ],
+  "bandTargetScreen": [
+    336,
+    480
+  ],
+  "packageBytes": 17407011,
+  "reductionPercent": 18.77,
+  "physicalBandTested": false
+}

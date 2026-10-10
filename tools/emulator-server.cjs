@@ -6,7 +6,7 @@ const {getRunningAvdConfigByName}=require('@aiot-toolkit/emulator/lib/emulatorut
 const {createGrpcClient}=require('@aiot-toolkit/emulator/lib/vvd/grpc');
 const environment=process.env.STARRY_EMULATOR_HOME || path.resolve(__dirname,'../.emulator');
 const manager=new VvdManager({sdkHome:process.env.WATCH_SDK_HOME||path.join(environment,'sdk'),vvdHome:path.join(environment,'vvd')});
-const name=process.env.WATCH_VVD_NAME||'PaperRW5-432x514';
+const name=process.env.WATCH_VVD_NAME||'PaperBand8Pro-336x480';
 process.env.ANDROID_AVD_HOME=manager.vvdHome;
 process.env.ANDROID_EMULATOR_HOME=environment;
 process.env.ANDROID_SDK_ROOT=manager.sdkHome;
@@ -14,16 +14,18 @@ process.env.CI='1';
 let agent,child,server;
 fs.writeFileSync(path.join(environment,'controller-pid.json'),JSON.stringify({pid:process.pid,script:__filename}));
 const log=fs.createWriteStream(path.join(environment,'emulator.log'),{flags:'a'});
-const packageName=process.env.STARRY_EMULATOR_PACKAGE||'com.codex.paper.rw5';
-const adb=process.env.WATCH_ADB_PATH||path.resolve(__dirname,'../../starry-rw5/node_modules/@miwt/adb/bin/win/adb.exe');
+const packageName=process.env.STARRY_EMULATOR_PACKAGE||'com.codex.paper.band8pro';
+const adb=process.env.WATCH_ADB_PATH||path.resolve(path.dirname(require.resolve('@miwt/adb')),'../bin/win/adb.exe');
 async function adbCmd(...args){const r=await exec(adb,['-s','emulator-5556',...args],{windowsHide:true,timeout:240000,maxBuffer:1024*1024*8});return r.stdout;}
 async function connect(){if(agent)return agent;const conf=getRunningAvdConfigByName(name);if(!conf)throw new Error('Emulator is not registered yet');agent=createGrpcClient(conf);await agent.waitForReady();return agent;}
-async function install(rpk){const target='/data/paper-rw5.rpk';await adbCmd('wait-for-device');await adbCmd('push',rpk,target);try{const result=await adbCmd('shell','pm','install',target);if(!/success 0/.test(result))throw Error(result.trim()||'Installation did not report success');return result;}finally{await adbCmd('shell','rm',target).catch(()=>{});}}
+async function install(rpk){const target='/data/paper-band8pro.rpk';await adbCmd('wait-for-device');await adbCmd('push',rpk,target);try{const result=await adbCmd('shell','pm','install',target);if(!/success 0/.test(result))throw Error(result.trim()||'Installation did not report success');return result;}finally{await adbCmd('shell','rm',target).catch(()=>{});}}
 async function startApp(){await adbCmd('wait-for-device');for(let n=0;n<80;n++){const info=await adbCmd('shell','pm','get',packageName).catch(()=> '');if(/bAllValid: true/.test(info)){const result=await adbCmd('shell','am','start',packageName);if(!/execution error|failed/i.test(result))return result;}await new Promise(r=>setTimeout(r,500));}throw Error('Emulator services are not ready or the application is not installed');}
 (async()=>{
   const cmd=await manager.getVvdStartCmd({vvdName:name,qtHideWindow:true,serialPort:5556,grpcPort:8556,debugPort:10056});
   const args=cmd.split(' ').filter(Boolean);let binary=args.shift();if(!binary.endsWith('.exe'))binary+='.exe';
   const portIndex=args.indexOf('-port');if(portIndex>=0)args.splice(portIndex+1,0,'5556');
+  const qemuIndex=args.indexOf('-qemu');
+  args.splice(qemuIndex<0?args.length:qemuIndex,0,'-memory','128');
   console.log('STARTING',name);
   child=spawn(binary,args,{cwd:manager.sdkHome,windowsHide:true,stdio:'pipe',env:process.env});
   child.stdout.on('data',x=>log.write(x));child.stderr.on('data',x=>{log.write(x);if(/ERROR|PANIC/i.test(x))console.log(x.toString().slice(0,700));});
@@ -49,7 +51,7 @@ async function startApp(){await adbCmd('wait-for-device');for(let n=0;n<80;n++){
       res.writeHead(200,{'Content-Type':'application/json'});res.end(JSON.stringify(result));
     }catch(e){res.writeHead(500,{'Content-Type':'application/json'});res.end(JSON.stringify({error:e.message||String(e)}));}
   });
-  server.listen(43127,'127.0.0.1',()=>console.log('CONTROL http://127.0.0.1:43127'));
+  server.listen(43128,'127.0.0.1',()=>console.log('CONTROL http://127.0.0.1:43128'));
   process.on('SIGINT',()=>{child.kill();server.close();process.exit();});
 })().catch(e=>{console.error(e);process.exitCode=1;});
 

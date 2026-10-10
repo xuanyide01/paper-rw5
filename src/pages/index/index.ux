@@ -83,28 +83,28 @@ import {textFont} from '../../common/text-font.js';
 import {portraitBox} from '../../common/portrait-layout.js';
 import {PROGRESS_KEY,emptyProgress,decodeProgress,progressFromState,withProgress} from '../../common/progress.js';
 export default {
-  private:{mode:'title',backgroundSrc:'/common/title_bg.png',bodySrc:'',bodySecond:'',bodyThird:'',portraitWidth:200,portraitLeft:116,portraitSecondLeft:216,speaker:'',displayText:'',chapterLabel:'',speakerFont:'sans-serif',dialogueFont:'sans-serif',chapterFont:'sans-serif',browseFont:'sans-serif',overwriteFont:'sans-serif',cgFont:'sans-serif',
-    options:[],loading:false,errorText:'',hasNextChapter:true,fontSize:24,textSpeed:30,speedLabel:'显示速度：逐字',fontLabel:'字号：标准',progressLabel:'红米手表 5 · 图文版',
-    portraitHeight:286,portraitTop:0,portraitSecondWidth:200,portraitSecondHeight:286,portraitSecondTop:0,portraitThirdWidth:144,portraitThirdHeight:286,portraitThirdTop:0,portraitThirdLeft:288,
+  private:{mode:'title',backgroundSrc:'/common/title_bg.png',bodySrc:'',bodySecond:'',bodyThird:'',portraitWidth:144,portraitLeft:96,portraitSecondLeft:168,speaker:'',displayText:'',chapterLabel:'',speakerFont:'sans-serif',dialogueFont:'sans-serif',chapterFont:'sans-serif',browseFont:'sans-serif',overwriteFont:'sans-serif',cgFont:'sans-serif',
+    options:[],loading:false,errorText:'',hasNextChapter:true,fontSize:22,textSpeed:30,speedLabel:'显示速度：逐字',fontLabel:'字号：标准',progressLabel:'小米手环 8 Pro · 测试版',
+    portraitHeight:240,portraitTop:0,portraitSecondWidth:144,portraitSecondHeight:240,portraitSecondTop:0,portraitThirdWidth:112,portraitThirdHeight:240,portraitThirdTop:0,portraitThirdLeft:224,
     slotTitle:'',slotPage:0,slotPageLabel:'',slotRows:[],storageBusy:false,overwriteTitle:'',overwriteDetail:'',endingLabel:'本篇阅读完毕',
     galleryPage:0,galleryPageLabel:'',galleryTop:[],galleryBottom:[],cgIndex:0,cgVariant:0,cgSrc:'',cgLabel:'',browseRows:[],browseTitle:'',browseLabel:'',browsePage:0},
   onInit(){
     this.session=newState();this.cachedChapter=0;this.ops=[];this.loadSequence=0;this.timer=null;this.fullText='';this.resumeMode='play';
     this._slotsSequence=0;this._gallerySequence=0;this._slotData=[];this._galleryCatalog=[];this._galleryTotal=0;this._slotsReturnMode='title';this._slotRole='load';
     this._progress=emptyProgress();this._progressWriteBusy=false;this._progressDirty=false;this._progressReady=false;this.loading=true;
-    storage.get({complete:()=>{},key:'paper_rw5_settings_v1',success:data=>{try{const s=JSON.parse(data);this.fontSize=s.fontSize===28?28:24;this.textSpeed=s.textSpeed===0?0:30;this.refreshSettings();}catch(e){}},fail:()=>{}});
+    storage.get({complete:()=>{},key:'paper_band8pro_settings_v1',success:data=>{try{const s=JSON.parse(data);this.fontSize=s.fontSize===26?26:22;this.textSpeed=s.textSpeed===0?0:30;this.refreshSettings();}catch(e){}},fail:()=>{}});
     this.readProgress();
-    console.log('PAPER_RW5 title ready');
+    console.log('PAPER_BAND8PRO title ready');
   },
-  backgroundLoaded(){console.log('PAPER_RW5 background loaded',this.mode,this.backgroundSrc);},
-  backgroundError(){console.log('PAPER_RW5 background failed',this.mode,this.backgroundSrc);},
+  backgroundLoaded(){console.log('PAPER_BAND8PRO background loaded',this.mode,this.backgroundSrc);},
+  backgroundError(){console.log('PAPER_BAND8PRO background failed',this.mode,this.backgroundSrc);},
   clearTyping(){if(this.timer!==null){clearTimeout(this.timer);this.timer=null;}},
   onShow(){this._hidden=false;if(this._chapterSkip&&this.timer===null)this.renderFrame();},
     onHide(){this._hidden=true;this.clearTyping();if(!this._chapterSkip&&this.mode==='play')this.displayText=this.fullText;},
   onDestroy(){this.clearTyping();this.loadSequence++;this._slotsSequence++;this._gallerySequence++;},
   readProgress(){this.loading=true;storage.get({complete:()=>{},key:PROGRESS_KEY,default:'',success:data=>{try{this._progress=decodeProgress(data);this._progressReady=true;this.refreshProgress();this.loading=false;}catch(e){this.fail(e.message);}},fail:()=>{this.fail('通关记录读取失败，请返回标题重试');}});},
   startNew(){if(this.loading||!this._progressReady)return;this.clearTyping();this.session=withProgress(newState(catalog.flowScene,true),this._progress);this.cachedChapter=0;this._autoHops=0;this.renderFrame();},
-  refreshProgress(){this.progressLabel='红米手表 5 · 图文版';},
+  refreshProgress(){this.progressLabel='小米手环 8 Pro · 测试版';},
   syncProgress(){
     if(!this._progressReady||this.session.progression!=='story')return;const progress=progressFromState(this.session);
     if(JSON.stringify(progress)===JSON.stringify(this._progress))return;
@@ -150,22 +150,22 @@ export default {
         this.portraitThirdWidth=third.width;this.portraitThirdHeight=third.height;this.portraitThirdTop=third.top;this.portraitThirdLeft=third.left;
         this.chapterLabel=this.visibleText(catalog.scenes[String(this.session.rootChapter)].name);this.chapterFont=textFont(this.chapterLabel);this.hasNextChapter=!this.session.ended;
         if(f.type==='map'){this.renderMap(f);return;}
-        if(f.type==='choice'){this.options=this.visibleOptions(f.items);this.mode='choice';console.log('PAPER_RW5 choice',this.session.chapter,this.session.cursor);return;}
-        if(f.type==='end'){this.mode='end';this.endingLabel=(catalog.endings[String(this.session.chapter)]||'本篇')+' · 阅读完毕';console.log('PAPER_RW5 ending',this.session.chapter,this.endingLabel);return;}
+        if(f.type==='choice'){this.options=this.visibleOptions(f.items);this.mode='choice';console.log('PAPER_BAND8PRO choice',this.session.chapter,this.session.cursor);return;}
+        if(f.type==='end'){this.mode='end';this.endingLabel=(catalog.endings[String(this.session.chapter)]||'本篇')+' · 阅读完毕';console.log('PAPER_BAND8PRO ending',this.session.chapter,this.endingLabel);return;}
         this.mode='play';this.speaker=this.characterName(this.visibleText(f.speaker));this.fullText=this.visibleText(f.text).replace(/(^|\n)[ \t\u3000]{3,}/g,'$1');this.speakerFont=textFont(this.speaker);this.dialogueFont=textFont(this.fullText);this.displayText='';
         try{this.$element('dialogue-scroll').scrollTo({index:0});}catch(e){}
-        console.log('PAPER_RW5 frame',this.session.chapter,this.session.cursor);
+        console.log('PAPER_BAND8PRO frame',this.session.chapter,this.session.cursor);
         if(this.textSpeed===0){this.displayText=this.fullText;return;}
         const tick=()=>{this.displayText=this.fullText.slice(0,this.displayText.length+1);if(this.displayText.length<this.fullText.length)this.timer=setTimeout(tick,this.textSpeed);else this.timer=null;};tick();
       }catch(e){this.fail(e.message);}
     });
   },
   advance(){if(this.loading||this.mode!=='play')return;if(this.timer!==null){this.clearTyping();this.displayText=this.fullText;return;}next(this.session);this.renderFrame();},
-  renderMap(frame){this.loading=true;const seq=++this.loadSequence;file.readText({complete:()=>{},uri:'/common/map-preview.txt',success:data=>{if(seq!==this.loadSequence)return;try{const choices=previewMap(JSON.parse(data.text),this.session,frame);if(!choices.length)throw new Error('此地图阶段暂无支持的剧情选项，请返回标题选择其他篇章');this.options=this.visibleOptions(choices);this.mode='choice';this.loading=false;console.log('PAPER_RW5 map ready',this.session.chapter,this.session.cursor,choices.map(x=>x.value).join(','));}catch(e){this.fail(e.message);}},fail:()=>{if(seq===this.loadSequence)this.fail('地图选项读取失败');}});},
-  goNextChapter(){if(this.loading||this.mode!=='menu')return;if(this.resumeMode==='choice'){this.mode='choice';this.toast('请先作出当前选择');return;}this.clearTyping();this._chapterSkip=nextChapter(this.session);if(!this._chapterSkip){this.toast('本篇已结束');return;}this._autoHops=0;this.loading=true;this.renderFrame();console.log('PAPER_RW5 safe chapter skip',this.session.chapter,this.session.cursor);},
+  renderMap(frame){this.loading=true;const seq=++this.loadSequence;file.readText({complete:()=>{},uri:'/common/map-preview.txt',success:data=>{if(seq!==this.loadSequence)return;try{const choices=previewMap(JSON.parse(data.text),this.session,frame);if(!choices.length)throw new Error('此地图阶段暂无支持的剧情选项，请返回标题选择其他篇章');this.options=this.visibleOptions(choices);this.mode='choice';this.loading=false;console.log('PAPER_BAND8PRO map ready',this.session.chapter,this.session.cursor,choices.map(x=>x.value).join(','));}catch(e){this.fail(e.message);}},fail:()=>{if(seq===this.loadSequence)this.fail('地图选项读取失败');}});},
+  goNextChapter(){if(this.loading||this.mode!=='menu')return;if(this.resumeMode==='choice'){this.mode='choice';this.toast('请先作出当前选择');return;}this.clearTyping();this._chapterSkip=nextChapter(this.session);if(!this._chapterSkip){this.toast('本篇已结束');return;}this._autoHops=0;this.loading=true;this.renderFrame();console.log('PAPER_BAND8PRO safe chapter skip',this.session.chapter,this.session.cursor);},
   pick(index){if(this.mode!=='choice'||this.loading)return;choose(this.session,this.options[index],index);this.renderFrame();},
   goBack(){if(this.loading||this.mode!=='play')return;this.clearTyping();if(previous(this.session)){if(this.session.progression==='story')withProgress(this.session,this._progress);this.renderFrame();}else this.toast('已经是第一句');},
-  showMenu(){if(this.loading||(this.mode!=='play'&&this.mode!=='choice'))return;this.clearTyping();this.displayText=this.fullText;this.resumeMode=this.mode;this.mode='menu';console.log('PAPER_RW5 menu',this.session.chapter);},
+  showMenu(){if(this.loading||(this.mode!=='play'&&this.mode!=='choice'))return;this.clearTyping();this.displayText=this.fullText;this.resumeMode=this.mode;this.mode='menu';console.log('PAPER_BAND8PRO menu',this.session.chapter);},
   resume(){this.mode=this.resumeMode;},
   swipe(event){
     if(this.mode==='gallery'){if(event.direction==='left')this.nextGalleryPage();if(event.direction==='right')this.previousGalleryPage();return;}
@@ -178,7 +178,7 @@ export default {
     this._pendingSave=role==='save'?createSave(this.session,this.resumeMode,Date.now()):null;
     this.slotTitle=role==='save'?'选择保存栏位':'选择读取栏位';this.slotPage=0;this.slotRows=[];this.mode='slots';this.loading=true;
     const seq=++this._slotsSequence;this._slotData=Array(SLOT_COUNT).fill(null);
-    const ready=()=>{if(seq!==this._slotsSequence)return;this.loading=false;this.refreshSlotRows();console.log('PAPER_RW5 slots ready',role);};
+    const ready=()=>{if(seq!==this._slotsSequence)return;this.loading=false;this.refreshSlotRows();console.log('PAPER_BAND8PRO slots ready',role);};
     const finish=index=>{
       if(seq!==this._slotsSequence)return;
       if(index+1<SLOT_COUNT){setTimeout(()=>readSlot(index+1),0);return;}
@@ -197,10 +197,10 @@ export default {
     const saved=this._slotData[index];
     if(this._slotRole==='load'){
       if(!saved){this.toast('这个栏位还没有存档');return;}if(saved.invalid){this.toast('这个存档无法读取');return;}
-      try{this.session=restore(saved.state);if(this.session.progression==='story')withProgress(this.session,this._progress);this.cachedChapter=0;this._slotsSequence++;this.renderFrame();console.log('PAPER_RW5 slot loaded',index+1,this.session.chapter,this.session.cursor);}catch(e){this.toast(e.message);}return;
+      try{this.session=restore(saved.state);if(this.session.progression==='story')withProgress(this.session,this._progress);this.cachedChapter=0;this._slotsSequence++;this.renderFrame();console.log('PAPER_BAND8PRO slot loaded',index+1,this.session.chapter,this.session.cursor);}catch(e){this.toast(e.message);}return;
     }
     this._pendingSlotIndex=index;
-    if(saved){const row=slotRow(index,saved);this.overwriteTitle='覆盖'+row.title+'？';this.overwriteDetail=row.meta+'\n覆盖后将保存当前进度。';this.overwriteFont=textFont(this.overwriteDetail);this.mode='overwrite';console.log('PAPER_RW5 overwrite',index+1);return;}
+    if(saved){const row=slotRow(index,saved);this.overwriteTitle='覆盖'+row.title+'？';this.overwriteDetail=row.meta+'\n覆盖后将保存当前进度。';this.overwriteFont=textFont(this.overwriteDetail);this.mode='overwrite';console.log('PAPER_BAND8PRO overwrite',index+1);return;}
     this.commitSlot();
   },
   confirmOverwrite(){if(this.mode==='overwrite')this.commitSlot();},
@@ -210,7 +210,7 @@ export default {
     const index=this._pendingSlotIndex,seq=this._slotsSequence,payload=this._pendingSave;payload.savedAt=Date.now();this.storageBusy=true;this.loading=true;
     storage.set({complete:()=>{},key:slotKey(index),value:JSON.stringify(payload),success:()=>{
       if(seq!==this._slotsSequence)return;this._slotData[index]=payload;this.storageBusy=false;this.loading=false;this._slotsSequence++;this.mode=this.resumeMode;
-      this.toast('已保存到存档 '+('0'+(index+1)).slice(-2));console.log('PAPER_RW5 slot saved',index+1,payload.state.chapter,payload.state.cursor);
+      this.toast('已保存到存档 '+('0'+(index+1)).slice(-2));console.log('PAPER_BAND8PRO slot saved',index+1,payload.state.chapter,payload.state.cursor);
     },fail:()=>{if(seq!==this._slotsSequence)return;this.storageBusy=false;this.loading=false;this.toast('保存失败，请重试');}});
   },
   openGallery(){
@@ -219,77 +219,76 @@ export default {
     this.loading=true;const seq=++this._gallerySequence;
     file.readText({complete:()=>{},uri:'/common/gallery.txt',success:data=>{
       if(seq!==this._gallerySequence)return;
-      try{const items=JSON.parse(data.text);if(!Array.isArray(items)||!items.length)throw new Error('CG 目录为空');this._galleryCatalog=groupGallery(items);this._galleryTotal=items.length;this.galleryPage=0;this.loading=false;this.refreshGallery();console.log('PAPER_RW5 gallery ready',this._galleryCatalog.length,items.length);}catch(e){this.fail(e.message);}
+      try{const items=JSON.parse(data.text);if(!Array.isArray(items)||!items.length)throw new Error('CG 目录为空');this._galleryCatalog=groupGallery(items);this._galleryTotal=items.length;this.galleryPage=0;this.loading=false;this.refreshGallery();console.log('PAPER_BAND8PRO gallery ready',this._galleryCatalog.length,items.length);}catch(e){this.fail(e.message);}
     },fail:(data,code)=>{if(seq===this._gallerySequence)this.fail('CG 目录读取失败：'+code);}});
   },
   refreshGallery(){const start=this.galleryPage*4;const items=this._galleryCatalog.slice(start,start+4).map((item,i)=>({image:item.image,label:item.label+'\n'+item.variants.length+' 张',index:start+i,font:textFont(item.label+'张'),src:imagePath(item.image)}));this.galleryTop=items.slice(0,2);this.galleryBottom=items.slice(2,4);this.galleryPageLabel=this._galleryCatalog.length+' 组 · '+this._galleryTotal+' 张 · 第 '+(this.galleryPage+1)+' / '+Math.ceil(this._galleryCatalog.length/4)+' 页';},
   previousGalleryPage(){if(this.loading||this.galleryPage===0)return;this.galleryPage--;this.refreshGallery();},
   nextGalleryPage(){if(this.loading||this.galleryPage>=Math.ceil(this._galleryCatalog.length/4)-1)return;this.galleryPage++;this.refreshGallery();},
   viewCg(index){if(this.loading||index<0||index>=this._galleryCatalog.length)return;this.cgIndex=index;this.cgVariant=0;this.mode='cg';this.renderCg();},
-  renderCg(){const group=this._galleryCatalog[this.cgIndex],item=group.variants[this.cgVariant];this.cgSrc=imagePath(item.image);this.cgLabel=group.label+(group.variants.length>1?' · 差分 '+(this.cgVariant+1)+' / '+group.variants.length+' · 点击切换':'');this.cgFont=textFont(this.cgLabel);console.log('PAPER_RW5 cg',this.cgIndex+1,this.cgVariant+1,item.image);},
+  renderCg(){const group=this._galleryCatalog[this.cgIndex],item=group.variants[this.cgVariant];this.cgSrc=imagePath(item.image);this.cgLabel=group.label+(group.variants.length>1?' · 差分 '+(this.cgVariant+1)+' / '+group.variants.length+' · 点击切换':'');this.cgFont=textFont(this.cgLabel);console.log('PAPER_BAND8PRO cg',this.cgIndex+1,this.cgVariant+1,item.image);},
   cycleCg(){if(this.mode!=='cg'||this.loading)return;const count=this._galleryCatalog[this.cgIndex].variants.length;if(count<2)return;this.cgVariant=stepVariant(this.cgVariant,1,count);this.renderCg();},
   previousCg(){if(this.cgIndex>0)this.viewCg(this.cgIndex-1);},
   nextCg(){if(this.cgIndex<this._galleryCatalog.length-1)this.viewCg(this.cgIndex+1);},
   backToGallery(){this.galleryPage=Math.floor(this.cgIndex/4);this.refreshGallery();this.mode='gallery';},
-  refreshSettings(){this.speedLabel=this.textSpeed===0?'显示速度：即时':'显示速度：逐字';this.fontLabel=this.fontSize===28?'字号：大':'字号：标准';},
-  persistSettings(){storage.set({complete:()=>{},key:'paper_rw5_settings_v1',value:JSON.stringify({fontSize:this.fontSize,textSpeed:this.textSpeed}),success:()=>{},fail:()=>{}});},
+  refreshSettings(){this.speedLabel=this.textSpeed===0?'显示速度：即时':'显示速度：逐字';this.fontLabel=this.fontSize===26?'字号：大':'字号：标准';},
+  persistSettings(){storage.set({complete:()=>{},key:'paper_band8pro_settings_v1',value:JSON.stringify({fontSize:this.fontSize,textSpeed:this.textSpeed}),success:()=>{},fail:()=>{}});},
   toggleSpeed(){this.textSpeed=this.textSpeed===0?30:0;this.refreshSettings();this.persistSettings();},
-  toggleFont(){this.fontSize=this.fontSize===24?28:24;this.refreshSettings();this.persistSettings();},
+  toggleFont(){this.fontSize=this.fontSize===22?26:22;this.refreshSettings();this.persistSettings();},
   toTitle(){if(this.storageBusy)return;this._chapterSkip=null;this.syncProgress();this.writeProgress();this.clearTyping();this.loadSequence++;this._slotsSequence++;this._gallerySequence++;this.loading=false;this.mode='title';this.backgroundSrc='/common/title_bg.png';this.bodySrc='';this.bodySecond='';this.bodyThird='';if(!this._progressReady)this.readProgress();},
   toast(message){prompt.showToast({message,duration:1500,success:()=>{},fail:()=>{},complete:()=>{}});},
-  fail(message){this._chapterSkip=null;this.clearTyping();this.loading=false;this.mode='error';this.errorText=message;console.error('PAPER_RW5 error',message);}
+  fail(message){this._chapterSkip=null;this.clearTyping();this.loading=false;this.mode='error';this.errorText=message;console.error('PAPER_BAND8PRO error',message);}
 }
 </script>
 <style>
 @font-face {font-family:paperextra;src:url('/common/paper-extra.otf');}
-.page{width:432px;height:514px;background-color:#0a111f;flex-direction:column;}
-.art{position:absolute;top:0px;left:0px;width:432px;height:286px;justify-content:center;align-items:center;background-color:#000000;}
-.background{width:432px;height:286px;object-fit:contain;}
-.body{position:absolute;top:0px;left:116px;width:200px;height:286px;object-fit:contain;}
-.title-panel,.dialogue-panel,.choice-panel,.end-panel{position:absolute;top:286px;left:0px;width:432px;height:228px;flex-direction:column;padding:12px 18px;}
+.page{width:336px;height:480px;background-color:#0a111f;flex-direction:column;}
+.art{position:absolute;top:0px;left:0px;width:336px;height:240px;justify-content:center;align-items:center;background-color:#000000;}
+.background{width:336px;height:240px;object-fit:contain;}
+.body{position:absolute;top:0px;left:96px;width:144px;height:240px;object-fit:contain;}
+.title-panel,.dialogue-panel,.choice-panel,.end-panel{position:absolute;top:240px;left:0px;width:336px;height:240px;flex-direction:column;padding:12px 16px;}
 .title-text{font-size:26px;color:#f4f7ff;text-align:center;margin-bottom:2px;}
-.title-subtitle{font-size:16px;color:#8d9cae;text-align:center;margin-bottom:4px;}
-.title-action{height:27px;width:396px;margin-bottom:2px;color:#ffffff;background-color:#25445f;border-radius:10px;text-align:center;font-size:20px;}
-.game-title{font-size:28px;color:#f4f7ff;text-align:center;margin-bottom:4px;}
+.title-subtitle{font-size:16px;color:#8d9cae;text-align:center;margin-bottom:6px;}
+.title-action{height:34px;width:304px;margin-bottom:3px;color:#ffffff;background-color:#25445f;border-radius:10px;text-align:center;font-size:21px;}
+.game-title{font-size:25px;color:#f4f7ff;text-align:center;margin-bottom:4px;}
 .subtitle{font-size:18px;color:#8d9cae;text-align:center;margin-bottom:8px;}
-.action{height:52px;width:396px;margin-bottom:6px;color:#ffffff;background-color:#25445f;border-radius:14px;text-align:center;font-size:24px;}
+.action{height:48px;width:304px;margin-bottom:6px;color:#ffffff;background-color:#25445f;border-radius:12px;text-align:center;font-size:22px;}
 .secondary{background-color:#192b3d;}
-.speaker-row{height:30px;justify-content:space-between;align-items:center;}
-.speaker{font-size:23px;color:#9bdaed;}
-.chapter{font-size:16px;color:#72849b;}
-.dialogue-scroll{width:396px;height:128px;}
-.dialogue{width:396px;color:#f4f7ff;line-height:34px;}
-.toolbar{height:42px;width:396px;justify-content:space-between;align-items:center;}
-.tool{font-size:20px;color:#b7cbdf;padding:8px;}
-.choice-title{font-size:23px;color:#b8dbe9;margin-bottom:8px;text-align:center;}
-.choice{height:68px;width:396px;background-color:#25445f;border-radius:12px;font-size:21px;line-height:25px;color:#ffffff;text-align:center;margin-bottom:6px;}
-.small-action{font-size:18px;color:#9bacc0;text-align:center;}
-.overlay{position:absolute;top:0px;left:0px;width:432px;height:514px;background-color:#0a111f;flex-direction:column;padding:22px 32px;}
-.menu-title{height:36px;font-size:28px;color:#ffffff;text-align:center;margin-bottom:12px;}
-.menu-action{height:50px;font-size:22px;color:#d5e5f2;background-color:#172b3c;border-radius:12px;margin-bottom:8px;text-align:center;}
+.speaker-row{height:42px;width:304px;flex-direction:column;}
+.speaker{height:25px;width:304px;font-size:22px;color:#9bdaed;}
+.chapter{height:17px;width:304px;font-size:14px;color:#72849b;}
+.dialogue-scroll{width:304px;height:132px;}
+.dialogue{width:304px;color:#f4f7ff;line-height:32px;}
+.toolbar{height:42px;width:304px;justify-content:space-between;align-items:center;}
+.tool{font-size:19px;color:#b7cbdf;padding:7px;}
+.choice-title{height:30px;font-size:22px;color:#b8dbe9;margin-bottom:8px;text-align:center;}
+.choice{height:72px;width:304px;background-color:#25445f;border-radius:12px;font-size:21px;line-height:26px;color:#ffffff;text-align:center;margin-bottom:6px;}
+.small-action{height:28px;font-size:19px;color:#9bacc0;text-align:center;}
+.overlay{position:absolute;top:0px;left:0px;width:336px;height:480px;background-color:#0a111f;flex-direction:column;padding:20px 24px;}
+.menu-title{height:36px;font-size:26px;color:#ffffff;text-align:center;margin-bottom:12px;}
+.menu-action{height:44px;font-size:21px;color:#d5e5f2;background-color:#172b3c;border-radius:12px;margin-bottom:8px;text-align:center;}
 .muted{color:#98aabd;}
-.full-panel{position:absolute;top:0px;left:0px;width:432px;height:514px;background-color:#0a111f;flex-direction:column;padding:16px 18px;}
-.panel-title{height:36px;font-size:28px;color:#ffffff;text-align:center;margin-bottom:4px;}
-.panel-subtitle{height:22px;font-size:16px;color:#93a8bc;text-align:center;margin-bottom:6px;}
-.slot-list{height:368px;width:396px;flex-direction:column;}
-.slot-card{height:84px;width:396px;margin-bottom:8px;padding:7px 12px;flex-direction:column;border-radius:12px;}
-.slot-title{height:26px;font-size:22px;color:#e5f0fa;}
-.slot-meta{height:19px;font-size:16px;color:#9ab2c7;}
-.slot-preview{height:22px;font-size:18px;color:#bfceda;}
-.pager{height:44px;width:396px;justify-content:space-between;align-items:center;}
-.pager-action{font-size:20px;color:#b7cbdf;padding:8px;}
-.gallery-row{height:184px;width:396px;justify-content:space-between;}
-.gallery-card{height:176px;width:192px;padding:6px;flex-direction:column;background-color:#142535;border-radius:12px;}
-.gallery-thumb{height:116px;width:180px;object-fit:contain;background-color:#000000;}
-.gallery-caption{height:48px;width:180px;font-size:18px;line-height:22px;color:#d5e5f2;text-align:center;}
-.cg-panel{position:absolute;top:0px;left:0px;width:432px;height:514px;flex-direction:column;background-color:#000000;}
-.cg-image{width:432px;height:432px;object-fit:contain;}
-.cg-caption{width:432px;height:28px;font-size:18px;color:#d5e5f2;text-align:center;}
-.cg-controls{width:432px;height:54px;padding:0px 10px;justify-content:space-between;align-items:center;background-color:#0a111f;}
-.confirm-text{font-size:24px;color:#d5e5f2;margin:30px 0px;}
-.error-text{font-size:22px;color:#eab7b7;margin-bottom:30px;}
-.loading{position:absolute;top:234px;left:128px;width:176px;height:46px;text-align:center;font-size:23px;color:#ffffff;background-color:#253a50;border-radius:12px;}
-.choice-panel{top:0px;height:514px;background-color:#0a111f;padding:18px;}
-.choice-list{width:396px;height:416px;flex-direction:column;}
+.full-panel{position:absolute;top:0px;left:0px;width:336px;height:480px;background-color:#0a111f;flex-direction:column;padding:14px 16px;}
+.panel-title{height:32px;font-size:26px;color:#ffffff;text-align:center;margin-bottom:4px;}
+.panel-subtitle{height:22px;font-size:15px;color:#93a8bc;text-align:center;margin-bottom:6px;}
+.slot-list{height:336px;width:304px;flex-direction:column;}
+.slot-card{height:76px;width:304px;margin-bottom:8px;padding:6px 10px;flex-direction:column;border-radius:12px;}
+.slot-title{height:24px;font-size:20px;color:#e5f0fa;}
+.slot-meta{height:17px;font-size:14px;color:#9ab2c7;}
+.slot-preview{height:21px;font-size:16px;color:#bfceda;}
+.pager{height:42px;width:304px;justify-content:space-between;align-items:center;}
+.pager-action{font-size:18px;color:#b7cbdf;padding:6px;}
+.gallery-row{height:168px;width:304px;justify-content:space-between;}
+.gallery-card{height:160px;width:146px;padding:6px;flex-direction:column;background-color:#142535;border-radius:12px;}
+.gallery-thumb{height:94px;width:134px;object-fit:contain;background-color:#000000;}
+.gallery-caption{height:54px;width:134px;font-size:16px;line-height:20px;color:#d5e5f2;text-align:center;}
+.cg-panel{position:absolute;top:0px;left:0px;width:336px;height:480px;flex-direction:column;background-color:#000000;}
+.cg-image{width:336px;height:398px;object-fit:contain;}
+.cg-caption{width:336px;height:28px;font-size:17px;color:#d5e5f2;text-align:center;}
+.cg-controls{width:336px;height:54px;padding:0px 6px;justify-content:space-between;align-items:center;background-color:#0a111f;}
+.confirm-text{font-size:21px;color:#d5e5f2;margin:24px 0px;}
+.error-text{font-size:21px;color:#eab7b7;margin-bottom:24px;}
+.loading{position:absolute;top:214px;left:88px;width:160px;height:44px;text-align:center;font-size:22px;color:#ffffff;background-color:#253a50;border-radius:12px;}
+.choice-panel{top:0px;height:480px;background-color:#0a111f;padding:16px;}
+.choice-list{width:304px;height:370px;flex-direction:column;}
 </style>
-

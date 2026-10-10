@@ -1,7 +1,7 @@
 <script>
 export default {
-  onCreate() { console.log('PAPER_RW5 app created'); },
-  onDestroy() { console.log('PAPER_RW5 app destroyed'); }
+  onCreate() { console.log('PAPER_BAND8PRO app created'); },
+  onDestroy() { console.log('PAPER_BAND8PRO app destroyed'); }
 }
 </script>
 
