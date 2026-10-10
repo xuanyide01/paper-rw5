@@ -1,0 +1,10 @@
+{
+  "select_1a": {"text":"对挚友的极致友情","image":"select_1a"},
+  "select_1b": {"text":"对少女的极致爱情","image":"select_1b"},
+  "select_2a": {"text":"“可最讨厌你”","image":"select_2a"},
+  "select_2b": {"text":"“可最喜欢你”","image":"select_2b"},
+  "select_3a": {"text":"为了自己，阅读残缺书页","image":"select_3a"},
+  "select_3b": {"text":"为了夜子，归还残缺书页","image":"select_3b"},
+  "select_4a": {"text":"撕毁、扔掉魔法之书","image":"select_4a"},
+  "select_4b": {"text":"不撕毁、扔掉魔法之书","image":"select_4b"}
+}

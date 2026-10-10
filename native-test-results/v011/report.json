@@ -1,0 +1,54 @@
+{
+  "version": "0.1.1",
+  "result": "passed",
+  "runtime": "official vela-watch-5.0",
+  "screen": [
+    432,
+    514
+  ],
+  "physicalDeviceTested": false,
+  "packageSha256": "7bd9dc7d67602d2577cc76c8e181edcd837b31a79a9a995540af5c0dea54edf4",
+  "coldBoot30Slots": true,
+  "pendingChoiceSaveSlots": [
+    27,
+    28,
+    29,
+    30
+  ],
+  "guide": "https://steamcommunity.com/sharedfiles/filedetails/?id=3698221481",
+  "endings": [
+    {
+      "name": "伏见理央",
+      "endingScene": 43
+    },
+    {
+      "name": "月社妃",
+      "endingScene": 40
+    },
+    {
+      "name": "游行寺夜子",
+      "endingScene": 47
+    },
+    {
+      "name": "珂莉莎贝丽尔",
+      "endingScene": 8
+    },
+    {
+      "name": "日向彼方",
+      "endingScene": 10
+    }
+  ],
+  "checks": [
+    "all original 30 early-game test saves restore after clean install and a full cold boot",
+    "all seven route directories refresh and have the correct chapter entries",
+    "CG gallery retains 80 groups / 415 images and differences cycle",
+    "save/load at all four original choices",
+    "five guide policies reach the five actual native endings",
+    "repeated chapter skip cannot bypass the final choice"
+  ],
+  "installation": {
+    "finalCleanInstallPassed": true,
+    "packageManagerAllValid": true,
+    "testDatabasePreservedAcrossReinstall": true
+  }
+}

@@ -1,0 +1,801 @@
+[
+  {
+    "start": 1,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 1
+  },
+  {
+    "start": 1,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 8,
+    "choices": 1
+  },
+  {
+    "start": 2,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 1
+  },
+  {
+    "start": 2,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 8,
+    "choices": 1
+  },
+  {
+    "start": 3,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 1
+  },
+  {
+    "start": 3,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 8,
+    "choices": 1
+  },
+  {
+    "start": 4,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 1
+  },
+  {
+    "start": 4,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 8,
+    "choices": 1
+  },
+  {
+    "start": 5,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 1
+  },
+  {
+    "start": 5,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 8,
+    "choices": 1
+  },
+  {
+    "start": 6,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 1
+  },
+  {
+    "start": 6,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 8,
+    "choices": 1
+  },
+  {
+    "start": 7,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 1
+  },
+  {
+    "start": 7,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 8,
+    "choices": 1
+  },
+  {
+    "start": 8,
+    "policy": [],
+    "endingScene": 8,
+    "choices": 0
+  },
+  {
+    "start": 8,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 8,
+    "choices": 0
+  },
+  {
+    "start": 9,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 0
+  },
+  {
+    "start": 9,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 10,
+    "choices": 0
+  },
+  {
+    "start": 10,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 0
+  },
+  {
+    "start": 10,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 10,
+    "choices": 0
+  },
+  {
+    "start": 11,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 11,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 12,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 12,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 13,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 13,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 14,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 14,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 15,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 15,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 16,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 16,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 17,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 17,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 18,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 18,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 19,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 19,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 20,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 20,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 21,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 21,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 22,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 22,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 23,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 23,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 24,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 24,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 25,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 25,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 26,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 26,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 27,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 27,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 28,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 28,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 29,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 4
+  },
+  {
+    "start": 29,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 1
+  },
+  {
+    "start": 30,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 3
+  },
+  {
+    "start": 30,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 40,
+    "choices": 1
+  },
+  {
+    "start": 31,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 3
+  },
+  {
+    "start": 31,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 40,
+    "choices": 1
+  },
+  {
+    "start": 32,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 3
+  },
+  {
+    "start": 32,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 40,
+    "choices": 1
+  },
+  {
+    "start": 33,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 3
+  },
+  {
+    "start": 33,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 40,
+    "choices": 1
+  },
+  {
+    "start": 34,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 3
+  },
+  {
+    "start": 34,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 40,
+    "choices": 1
+  },
+  {
+    "start": 35,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 3
+  },
+  {
+    "start": 35,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 40,
+    "choices": 1
+  },
+  {
+    "start": 36,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 2
+  },
+  {
+    "start": 36,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 47,
+    "choices": 1
+  },
+  {
+    "start": 37,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 2
+  },
+  {
+    "start": 37,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 47,
+    "choices": 1
+  },
+  {
+    "start": 38,
+    "policy": [],
+    "endingScene": 10,
+    "choices": 2
+  },
+  {
+    "start": 38,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 47,
+    "choices": 1
+  },
+  {
+    "start": 39,
+    "policy": [],
+    "endingScene": 40,
+    "choices": 0
+  },
+  {
+    "start": 39,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 40,
+    "choices": 0
+  },
+  {
+    "start": 40,
+    "policy": [],
+    "endingScene": 40,
+    "choices": 0
+  },
+  {
+    "start": 40,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 40,
+    "choices": 0
+  },
+  {
+    "start": 41,
+    "policy": [],
+    "endingScene": 43,
+    "choices": 0
+  },
+  {
+    "start": 41,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 0
+  },
+  {
+    "start": 42,
+    "policy": [],
+    "endingScene": 43,
+    "choices": 0
+  },
+  {
+    "start": 42,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 0
+  },
+  {
+    "start": 43,
+    "policy": [],
+    "endingScene": 43,
+    "choices": 0
+  },
+  {
+    "start": 43,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choices": 0
+  },
+  {
+    "start": 44,
+    "policy": [],
+    "endingScene": 44,
+    "choices": 0
+  },
+  {
+    "start": 44,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 44,
+    "choices": 0
+  },
+  {
+    "start": 45,
+    "policy": [],
+    "endingScene": 47,
+    "choices": 0
+  },
+  {
+    "start": 45,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 47,
+    "choices": 0
+  },
+  {
+    "start": 46,
+    "policy": [],
+    "endingScene": 47,
+    "choices": 0
+  },
+  {
+    "start": 46,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 47,
+    "choices": 0
+  },
+  {
+    "start": 47,
+    "policy": [],
+    "endingScene": 47,
+    "choices": 0
+  },
+  {
+    "start": 47,
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 47,
+    "choices": 0
+  }
+]

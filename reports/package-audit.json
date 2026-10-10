@@ -1,0 +1,20 @@
+{
+  "file": "com.codex.paper.rw5.debug.0.1.1.rpk",
+  "version": "0.1.1",
+  "bytes": 21429431,
+  "expandedBytes": 24782838,
+  "entries": 1053,
+  "sha256": "7bd9dc7d67602d2577cc76c8e181edcd837b31a79a9a995540af5c0dea54edf4",
+  "certificateSha256": "4e8e1ee24968b0dad6d0956a7e14d848b38b22a203f39c389a45d8737bdc4585",
+  "zipCRCValid": true,
+  "outerSignatureValid": true,
+  "innerSignatureValid": true,
+  "allFileDigestsValid": true,
+  "signedFiles": 999,
+  "decodedImages": 855,
+  "unquantizedPNGs": 342,
+  "allCommonResourcesMatchSource": true,
+  "circularRGBAIcon": true,
+  "textFontCoverageValid": true,
+  "physicalDeviceTested": false
+}

@@ -1,0 +1,420 @@
+[
+  {
+    "policy": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "endingScene": 10,
+    "choiceCount": 4,
+    "lines": 35439,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 0,
+        "text": "对挚友的极致友情",
+        "to": 1478
+      },
+      {
+        "scene": 35,
+        "cursor": 756,
+        "index": 0,
+        "text": "“可最讨厌你”",
+        "to": 759
+      },
+      {
+        "scene": 38,
+        "cursor": 899,
+        "index": 0,
+        "text": "为了自己，阅读残缺书页",
+        "to": 902
+      },
+      {
+        "scene": 7,
+        "cursor": 1695,
+        "index": 0,
+        "text": "撕毁、扔掉魔法之书",
+        "to": 1696
+      }
+    ]
+  },
+  {
+    "policy": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "endingScene": 43,
+    "choiceCount": 1,
+    "lines": 24870,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 1,
+        "text": "对少女的极致爱情",
+        "to": 1477
+      }
+    ]
+  },
+  {
+    "policy": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "endingScene": 40,
+    "choiceCount": 2,
+    "lines": 28351,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 0,
+        "text": "对挚友的极致友情",
+        "to": 1478
+      },
+      {
+        "scene": 35,
+        "cursor": 756,
+        "index": 1,
+        "text": "“可最喜欢你”",
+        "to": 757
+      }
+    ]
+  },
+  {
+    "policy": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "endingScene": 43,
+    "choiceCount": 1,
+    "lines": 24870,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 1,
+        "text": "对少女的极致爱情",
+        "to": 1477
+      }
+    ]
+  },
+  {
+    "policy": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "endingScene": 47,
+    "choiceCount": 3,
+    "lines": 31549,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 0,
+        "text": "对挚友的极致友情",
+        "to": 1478
+      },
+      {
+        "scene": 35,
+        "cursor": 756,
+        "index": 0,
+        "text": "“可最讨厌你”",
+        "to": 759
+      },
+      {
+        "scene": 38,
+        "cursor": 899,
+        "index": 1,
+        "text": "为了夜子，归还残缺书页",
+        "to": 900
+      }
+    ]
+  },
+  {
+    "policy": [
+      1,
+      0,
+      1,
+      0
+    ],
+    "endingScene": 43,
+    "choiceCount": 1,
+    "lines": 24870,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 1,
+        "text": "对少女的极致爱情",
+        "to": 1477
+      }
+    ]
+  },
+  {
+    "policy": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "endingScene": 40,
+    "choiceCount": 2,
+    "lines": 28351,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 0,
+        "text": "对挚友的极致友情",
+        "to": 1478
+      },
+      {
+        "scene": 35,
+        "cursor": 756,
+        "index": 1,
+        "text": "“可最喜欢你”",
+        "to": 757
+      }
+    ]
+  },
+  {
+    "policy": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "endingScene": 43,
+    "choiceCount": 1,
+    "lines": 24870,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 1,
+        "text": "对少女的极致爱情",
+        "to": 1477
+      }
+    ]
+  },
+  {
+    "policy": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "endingScene": 8,
+    "choiceCount": 4,
+    "lines": 34384,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 0,
+        "text": "对挚友的极致友情",
+        "to": 1478
+      },
+      {
+        "scene": 35,
+        "cursor": 756,
+        "index": 0,
+        "text": "“可最讨厌你”",
+        "to": 759
+      },
+      {
+        "scene": 38,
+        "cursor": 899,
+        "index": 0,
+        "text": "为了自己，阅读残缺书页",
+        "to": 902
+      },
+      {
+        "scene": 7,
+        "cursor": 1695,
+        "index": 1,
+        "text": "不撕毁、扔掉魔法之书",
+        "to": 1698
+      }
+    ]
+  },
+  {
+    "policy": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "endingScene": 43,
+    "choiceCount": 1,
+    "lines": 24870,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 1,
+        "text": "对少女的极致爱情",
+        "to": 1477
+      }
+    ]
+  },
+  {
+    "policy": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "endingScene": 40,
+    "choiceCount": 2,
+    "lines": 28351,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 0,
+        "text": "对挚友的极致友情",
+        "to": 1478
+      },
+      {
+        "scene": 35,
+        "cursor": 756,
+        "index": 1,
+        "text": "“可最喜欢你”",
+        "to": 757
+      }
+    ]
+  },
+  {
+    "policy": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "endingScene": 43,
+    "choiceCount": 1,
+    "lines": 24870,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 1,
+        "text": "对少女的极致爱情",
+        "to": 1477
+      }
+    ]
+  },
+  {
+    "policy": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "endingScene": 47,
+    "choiceCount": 3,
+    "lines": 31549,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 0,
+        "text": "对挚友的极致友情",
+        "to": 1478
+      },
+      {
+        "scene": 35,
+        "cursor": 756,
+        "index": 0,
+        "text": "“可最讨厌你”",
+        "to": 759
+      },
+      {
+        "scene": 38,
+        "cursor": 899,
+        "index": 1,
+        "text": "为了夜子，归还残缺书页",
+        "to": 900
+      }
+    ]
+  },
+  {
+    "policy": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choiceCount": 1,
+    "lines": 24870,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 1,
+        "text": "对少女的极致爱情",
+        "to": 1477
+      }
+    ]
+  },
+  {
+    "policy": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 40,
+    "choiceCount": 2,
+    "lines": 28351,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 0,
+        "text": "对挚友的极致友情",
+        "to": 1478
+      },
+      {
+        "scene": 35,
+        "cursor": 756,
+        "index": 1,
+        "text": "“可最喜欢你”",
+        "to": 757
+      }
+    ]
+  },
+  {
+    "policy": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "endingScene": 43,
+    "choiceCount": 1,
+    "lines": 24870,
+    "choices": [
+      {
+        "scene": 29,
+        "cursor": 1476,
+        "index": 1,
+        "text": "对少女的极致爱情",
+        "to": 1477
+      }
+    ]
+  }
+]

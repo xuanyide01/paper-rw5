@@ -1,0 +1,1 @@
+[{"op":"text","speaker":"暗子","text":"“我啊，已经成了这世上最坏的恶人。”"},{"op":"text","speaker":"","text":"我将会在凄惨的痛苦中，走向死亡。"},{"op":"background","image":"暗転","clearBody":true},{"op":"jumpScene","scene":2,"to":0},{"op":"end"}]

@@ -1,0 +1,77 @@
+{
+  "guide": "https://steamcommunity.com/sharedfiles/filedetails/?id=3698221481",
+  "author": "由良 Sukiyo",
+  "routes": [
+    {
+      "name": "伏见理央",
+      "policy": [
+        1
+      ],
+      "endingScene": 43,
+      "source": "scenario_rio_3.ks",
+      "endingMarkers": [
+        "＝ RIO END ＝"
+      ],
+      "saveRestoreAndSafeSkipMatch": true
+    },
+    {
+      "name": "月社妃",
+      "policy": [
+        0,
+        1
+      ],
+      "endingScene": 40,
+      "source": "scenario_kisaki_2.ks",
+      "endingMarkers": [
+        "＝ KISAKI END ＝"
+      ],
+      "saveRestoreAndSafeSkipMatch": true
+    },
+    {
+      "name": "游行寺夜子",
+      "policy": [
+        0,
+        0,
+        1
+      ],
+      "endingScene": 47,
+      "source": "scenario_yoruko_3.ks",
+      "endingMarkers": [
+        "＝ YORUKO END ＝"
+      ],
+      "saveRestoreAndSafeSkipMatch": true
+    },
+    {
+      "name": "珂莉莎贝丽尔",
+      "policy": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "endingScene": 8,
+      "source": "scenario_12_4.ks",
+      "endingMarkers": [
+        "***　THE END　***"
+      ],
+      "saveRestoreAndSafeSkipMatch": true
+    },
+    {
+      "name": "日向彼方",
+      "policy": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "endingScene": 10,
+      "source": "scenario_13_2.ks",
+      "endingMarkers": [
+        "*** TRUE END ***"
+      ],
+      "saveRestoreAndSafeSkipMatch": true
+    }
+  ],
+  "correctedFinalChoiceTargets": true,
+  "normalReadingConditionalReturnsSkipped": true
+}

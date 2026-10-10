@@ -1,0 +1,452 @@
+{
+  "ExtHistoryLayer.ks": {
+    "archive": "data.xp3",
+    "entry": "others/ExtHistoryLayer.ks",
+    "encoding": "utf-16-le",
+    "sha256": "1597bcde6e99f037e652aea7155802b36bbad83d2acc975b73f029f588e2d86b"
+  },
+  "TJSFunctions.ks": {
+    "archive": "data.xp3",
+    "entry": "others/TJSFunctions.ks",
+    "encoding": "utf-16-le",
+    "sha256": "c32f8c340396a47728dee2b41264bf21b95759ac2bcd3cdf63eb5b014b934032"
+  },
+  "WindowResizable.ks": {
+    "archive": "data.xp3",
+    "entry": "others/WindowResizable.ks",
+    "encoding": "utf-16-le",
+    "sha256": "a9efcd53c5139a687aabdbfc0fcd03d43064950c2fd3392214d9ccd500e8ec7e"
+  },
+  "00.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/00.ks",
+    "encoding": "utf-16-le",
+    "sha256": "188e29fb0c6dc9cb31283646b50ea15f32ad2c0d7b9f2800bdf835d0e08c2a4e"
+  },
+  "album.ks": {
+    "archive": "patch.xp3",
+    "entry": "album.ks",
+    "encoding": "utf-16-le",
+    "sha256": "db05b8a0e00974276dafb58e5b2060a0cebf91ef287dd8f4151695bd75b4c0be"
+  },
+  "album_init.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/album_init.ks",
+    "encoding": "utf-16-le",
+    "sha256": "d9a9f284d69a7b344cdfa272ab0a4162b5ea8902fb9ae7dbee9475196a921c89"
+  },
+  "album_sub.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/album_sub.ks",
+    "encoding": "utf-16-le",
+    "sha256": "c42206b8e6a498a4baa428731746662a962cba87ca225cc5c482f84c49525568"
+  },
+  "ExtendedHistoryLayer.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/ExtendedHistoryLayer.ks",
+    "encoding": "utf-16-le",
+    "sha256": "a67659ed7080cb960c556109e79022efaab25811a7fba4aeb8a5b39edf380991"
+  },
+  "first.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/first.ks",
+    "encoding": "utf-16-le",
+    "sha256": "b5190243fd606c608d88cb6248d515ad3b877b69732a2022afdcac476f975a28"
+  },
+  "highSpeedLabeler.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/highSpeedLabeler.ks",
+    "encoding": "utf-16-le",
+    "sha256": "26d9fff229390dd082e8d1de2f4c5d1d43285d19958dec3518f284c2d90c97e6"
+  },
+  "layer_opacity_plugin.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/layer_opacity_plugin.ks",
+    "encoding": "utf-16-le",
+    "sha256": "3f251ba434acf88020e445ba047f5225a60de006c8193540197d22815f48bbd9"
+  },
+  "macro.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/macro.ks",
+    "encoding": "utf-16-le",
+    "sha256": "75db1a1ad9892af5330b51f94cc0f06cd19b4047b94ab4383ca2f5a616936b05"
+  },
+  "macro_log.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/macro_log.ks",
+    "encoding": "utf-16-le",
+    "sha256": "3afe172866ad39808a889aec4372b7ea5c5c78b273d013923741e6091038f2f1"
+  },
+  "r_click_config.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/r_click_config.ks",
+    "encoding": "utf-16-le",
+    "sha256": "df3945ce572eb7317fb390c597f8231def9770de6deca4ea02f9e0177162bbe9"
+  },
+  "sample.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/sample.ks",
+    "encoding": "utf-16-le",
+    "sha256": "8c5c03237f322b33acf623c114dab89c6597a6165b79239a20e8a1e345cb6340"
+  },
+  "scenario_0.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_0.ks",
+    "encoding": "utf-16-le",
+    "sha256": "81e5596adab7395d6c42c1f8af1dda025aeac034ed0409d3f23fce0641458636"
+  },
+  "scenario_10_0.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_10_0.ks",
+    "encoding": "utf-16-le",
+    "sha256": "eac8473e747dde6ff631f50d89eec99255ea9dc77b1491dd475a02fff9ebdec6"
+  },
+  "scenario_11_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_11_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "ffbcccb7e736a4cf859d9c1f046bacbbaee510e80b90cdf4e5f085d453beb4dd"
+  },
+  "scenario_11_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_11_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "d210ff91aa914ff4c8791104b90e6dc3187aa5bc81ee230b29fb64cda999afc5"
+  },
+  "scenario_11_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_11_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "6b48f61d4379d2d6b17f73d9d8d293d4e245f5702dcfab9571333efdd221ef74"
+  },
+  "scenario_12_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_12_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "b1c4dc3b948f10a24d7a833d7f8487e77f0f0e8b04486b4a974decb08cb36c52"
+  },
+  "scenario_12_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_12_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "b7f7b18805ccf1b517aade917d837d4904657d5eda961b4a769b17a615f52d85"
+  },
+  "scenario_12_3.ks": {
+    "archive": "patch.xp3",
+    "entry": "scenario_12_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "c13e5cc0a484d2ce5b20246086b71cb2dae0e568042c9f01062431d499aa6137"
+  },
+  "scenario_12_4.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_12_4.ks",
+    "encoding": "utf-16-le",
+    "sha256": "350aa60d176e5151d78b4296e7fde553cc84e592146dbbdd69683d29020876d5"
+  },
+  "scenario_13_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_13_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "b8e7ec9c8fcde092c941f2ebd71883f0a2d02cace37b1afe8177f3a66b044bff"
+  },
+  "scenario_13_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_13_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "0ba70ddf5f4825046e05e8a5f297d6c010ece7ae1643eb85662d0c171f7f4a26"
+  },
+  "scenario_1_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_1_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "faa9d99ecce55ec957c89dda0a4c3edd3698791122e1ca4afa9154104f34ca87"
+  },
+  "scenario_1_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_1_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "3b9581987daa8b0224daa32e465bffde84cca5fd38fcd88c1d65f5a9962aad42"
+  },
+  "scenario_1_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_1_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "5cb6594a5931273c106ef763d0352e0411b46f4383e5465a0a13fbcfbe58df96"
+  },
+  "scenario_2_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_2_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "36ce41cc03048299001e4928b4605e8671d8af59d5d79c5863e159a874c68e35"
+  },
+  "scenario_2_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_2_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "401df519b603a928c103e3966d278474c5115ce2ab5d3a0677c4aea8e581850f"
+  },
+  "scenario_2_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_2_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "fa20fad7bc4bb380ee18734e52fd0924abb969f64a71cafdfae1477ef00f2e1a"
+  },
+  "scenario_3_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_3_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "07305ab5dddf61bf66a70a7d690275bd2c1464ba98ba70ad9faa869a14fec4b0"
+  },
+  "scenario_3_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_3_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "bac2fc22f624b624affee15ad29187c5eb3a70715ce0fc9bcd935423911a3c25"
+  },
+  "scenario_3_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_3_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "6682c26a2b71f2365995bdcd58c36ac44e7b51562dd338edc130ba1538339e67"
+  },
+  "scenario_4_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_4_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "9346abd59401d4423c882347b5dd901d797bce6c4c01b14893ccc7c60b8ede08"
+  },
+  "scenario_4_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_4_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "8921461280856718aa9d5ef75cc1329de1c215a049701a7238b23a58686aa8dd"
+  },
+  "scenario_4_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_4_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "7e4a36258d774dbe0e042e6800ec538af0d5fb6c163a36ea44ed7d6a1c5cdf1d"
+  },
+  "scenario_5_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_5_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "cd8e55bb94de7f3fad48e148d6c08419aff91f593751b0624a5145b89bc91774"
+  },
+  "scenario_5_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_5_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "6e098b8f198d7aa7367421cc7df43c961d4478a8d4dc5dfcb4adaff89be8db66"
+  },
+  "scenario_5_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_5_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "d199e2c16bf647e2ee00c8344387ee3b825d9de67d26cf0fe1807dfb25208631"
+  },
+  "scenario_5_4.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_5_4.ks",
+    "encoding": "utf-16-le",
+    "sha256": "0f2619393ca29e471de7cbd9a315797512cb7be82bcc623b2249c19ae4ef94a5"
+  },
+  "scenario_6_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_6_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "f96bffa0f2f093d67ee0c849be0fff1fb901ed364bda955f2cb8c113bb7e37f6"
+  },
+  "scenario_6_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_6_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "cc1a32288e1aeeea9239446b9eb1b7ba45d370e78da51dd75b7767a04e9fc34b"
+  },
+  "scenario_6_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_6_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "9983de9896b1716f1bfc38b1073defa680f1b0025009a7937cac63a39ddc523f"
+  },
+  "scenario_7_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_7_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "a52d7ab18ce07e4f846352aa1dcc27cd431b1870f6d5bcb600eef96358080c79"
+  },
+  "scenario_7_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_7_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "c334812507b50822abc87a6f353ad9611cfbd4c5e57c5ea77869c8ac0e16c036"
+  },
+  "scenario_7_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_7_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "a748e0bc0f780981544db43551c538638997e0f4b4b68464be12b2422d9e2e9e"
+  },
+  "scenario_8_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_8_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "a0b9083ebcd8903f641cf45c72836ed9f4570834c465e85ab37aa7e87ba9227e"
+  },
+  "scenario_8_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_8_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "58d010af88edc62c24e04b01631b2375333b6049c13eb358e281a12d2bc4cc8f"
+  },
+  "scenario_8_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_8_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "8bd49c69e2886aad285e753d8eb6f0cd13ffa22e46f5e47795f1ffba1d9f920e"
+  },
+  "scenario_9_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_9_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "697d89dd83f911b8bc0f1b977245b01a2a52031b2ffeef56bfd31ef20808967d"
+  },
+  "scenario_9_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_9_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "4448a7ba8a9a8dc7d1fc3c0dbda84facf3b23fdd8e720a37a4e39f4a6fa76962"
+  },
+  "scenario_9_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_9_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "f800dbcd61be7fb59b6c1937930f5c1b32873a69a44185a4c5001964b6fbf7b0"
+  },
+  "scenario_kisaki_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_kisaki_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "a6168d89cf37096fd8f5e932edc6bafd6d0120f55a41b31e69c0c14a2a51612f"
+  },
+  "scenario_kisaki_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_kisaki_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "cb43efdc7b451e4f9945fead664342099de5b16c7bdc330931bb4c0c5262c6e2"
+  },
+  "scenario_rio_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_rio_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "d3e29a073109d932b7da71c21684699c45ffc99bde8154bc2e7d05e73d8b5cf3"
+  },
+  "scenario_rio_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_rio_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "071a36dc208c864074f7e9dc745f328db705922ab1905a37a2e3cf528fdccb50"
+  },
+  "scenario_rio_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_rio_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "753fcac4b67457d79e6eac22f20a791628d99771071058b9e8ef6c911bfb83d2"
+  },
+  "scenario_special.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_special.ks",
+    "encoding": "utf-16-le",
+    "sha256": "093583e73e6e478e2f139fc52847cab040bda6ebfcded050dbb30121f3ec538a"
+  },
+  "scenario_taiken.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_taiken.ks",
+    "encoding": "utf-16-le",
+    "sha256": "c0e4caa0a6954064398fefa67795618228f5c22a1c73e8ac6fe83f4dff3ef1e6"
+  },
+  "scenario_yoruko_1.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_yoruko_1.ks",
+    "encoding": "utf-16-le",
+    "sha256": "ba9d970b6880a24732bec8d5d53d42a6961a0be12a710ed85dfded005c9e3ac9"
+  },
+  "scenario_yoruko_2.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_yoruko_2.ks",
+    "encoding": "utf-16-le",
+    "sha256": "feb6b4640b5e7989a0f763a2aa4ea81b59b4f411c581d4d46802d5950708685b"
+  },
+  "scenario_yoruko_3.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scenario_yoruko_3.ks",
+    "encoding": "utf-16-le",
+    "sha256": "afb4a19610d714563a4ab8a8f4cbb5ba1950943f1232201cb6eb278a04aa568d"
+  },
+  "scene.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scene.ks",
+    "encoding": "utf-16-le",
+    "sha256": "00d732fd15324fa78709c35e7be35de3788764b13f99a4f88071dec0c4f29d66"
+  },
+  "scene_init.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/scene_init.ks",
+    "encoding": "utf-16-le",
+    "sha256": "45f72a77917ec2da760c5d9a48ac8f31385837d33fe1ac656d8def05dd30f2bc"
+  },
+  "slider_control.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/slider_control.ks",
+    "encoding": "utf-16-le",
+    "sha256": "7095d34d159dbab1aec8a107aa4bfd382e0e82b56b9d15660dae2272556543cd"
+  },
+  "sound_test.ks": {
+    "archive": "patch.xp3",
+    "entry": "sound_test.ks",
+    "encoding": "utf-16-le",
+    "sha256": "f02b1176652a2c3224e28b9474e8462bf74f2fd6e2e97e28d56d1d4de1555c1f"
+  },
+  "special.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/special.ks",
+    "encoding": "utf-16-le",
+    "sha256": "707d2f5d741754ee7f758e5eaadf9992c012b73f45770d0c59d8c9fa5f6d3235"
+  },
+  "systembutton.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/systembutton.ks",
+    "encoding": "utf-16-le",
+    "sha256": "66f5f97a7714bdddd823bfd2c47c079b10551d9aaf92d84fcc06adf2fff41423"
+  },
+  "systembutton_sub.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/systembutton_sub.ks",
+    "encoding": "utf-16-le",
+    "sha256": "b8ceaa05efcae01ea4c2ba6faf8ab8800c42440f5f2bcdff95542039ad77f754"
+  },
+  "system_load.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/system_load.ks",
+    "encoding": "utf-16-le",
+    "sha256": "77ec213f5de7cb8fc62b22a57a39b9155e0a33a4735ec299bf18aac4ac42cbd5"
+  },
+  "system_save.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/system_save.ks",
+    "encoding": "utf-16-le",
+    "sha256": "ed9fb06c1cd0b8c882baad9a47101d867a31fe06f55c21912416e840de30a708"
+  },
+  "system_subroutine.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/system_subroutine.ks",
+    "encoding": "utf-16-le",
+    "sha256": "d556cbc816bc5b4d97e03701bd928c6573bd47a2f9eedd4e6deb51d79a847ebb"
+  },
+  "title.ks": {
+    "archive": "data.xp3",
+    "entry": "scenario/title.ks",
+    "encoding": "utf-16-le",
+    "sha256": "08793b463fc08be50086da3a373a09b5602efd91858b9c1f0bdfb44af57ac658"
+  }
+}
