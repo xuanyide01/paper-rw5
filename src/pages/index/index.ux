@@ -1,7 +1,7 @@
 <template>
   <div class="page" onswipe="swipe">
-    <div if="{{mode === 'title' || mode === 'play'}}" class="art" onclick="advance">
-      <image if="{{mode === 'title'}}" class="background" src="/common/title_bg.png" onerror="backgroundError" oncomplete="backgroundLoaded"></image>
+    <div if="{{mode === 'title' || mode === 'play'}}" class="art" style="height: {{mode === 'title' ? 204 : 240}}px;" onclick="advance">
+      <image if="{{mode === 'title'}}" class="background" style="height:204px;" src="/common/title_bg.png" onerror="backgroundError" oncomplete="backgroundLoaded"></image>
       <image if="{{mode !== 'title'}}" class="background" src="{{backgroundSrc}}" onerror="backgroundError" oncomplete="backgroundLoaded"></image>
       <image if="{{bodySrc !== ''}}" class="body" style="width: {{portraitWidth}}px; height: {{portraitHeight}}px; top: {{portraitTop}}px; left: {{portraitLeft}}px;" src="{{bodySrc}}"></image>
       <image if="{{bodySecond !== ''}}" class="body" style="width: {{portraitSecondWidth}}px; height: {{portraitSecondHeight}}px; top: {{portraitSecondTop}}px; left: {{portraitSecondLeft}}px;" src="{{bodySecond}}"></image>
@@ -14,15 +14,16 @@
       <text class="title-action secondary" onclick="continueGame">读取存档</text>
       <text class="title-action secondary" onclick="openGallery">CG 鉴赏</text>
       <text class="title-action secondary" onclick="openRoutes">选择路线 / 章节</text>
+      <text class="title-action exit-action" onclick="exitApplication">退出应用</text>
     </div>
     <div if="{{mode === 'play'}}" class="dialogue-panel">
-      <div class="speaker-row"><text class="speaker" style="font-family: {{speakerFont}};">{{speaker}}</text><text class="chapter" style="font-family: {{chapterFont}};">{{chapterLabel}}</text></div>
-      <scroll id="dialogue-scroll" class="dialogue-scroll" scroll-y="true" onclick="advance"><text class="dialogue" style="font-size: {{fontSize}}px;font-family: {{dialogueFont}};">{{displayText}}</text></scroll>
+      <div class="speaker-row"><text if="{{speakerFont !== 'paperextra'}}" class="speaker">{{speaker}}</text><text if="{{speakerFont === 'paperextra'}}" class="speaker" style="font-family:paperextra;">{{speaker}}</text><text if="{{chapterFont !== 'paperextra'}}" class="chapter">{{chapterLabel}}</text><text if="{{chapterFont === 'paperextra'}}" class="chapter" style="font-family:paperextra;">{{chapterLabel}}</text></div>
+      <scroll id="dialogue-scroll" class="dialogue-scroll" scroll-y="true" onclick="advance"><text if="{{dialogueFont !== 'paperextra'}}" class="dialogue" style="font-size: {{fontSize}}px;">{{displayText}}</text><text if="{{dialogueFont === 'paperextra'}}" class="dialogue" style="font-size: {{fontSize}}px;font-family:paperextra;">{{displayText}}</text></scroll>
       <div class="toolbar"><text class="tool" onclick="goBack">上一句</text><text class="tool" onclick="showMenu">菜单</text><text class="tool" onclick="advance">下一句 ›</text></div>
     </div>
     <div if="{{mode === 'choice'}}" class="choice-panel">
       <text class="choice-title">选择下一步</text>
-      <scroll class="choice-list" scroll-y="true"><text for="{{options}}" tid="text" class="choice" style="font-family: {{$item.font}};" onclick="pick($idx)">{{$item.text}}</text></scroll>
+      <scroll class="choice-list" scroll-y="true"><div for="{{options}}" tid="text"><text if="{{$item.font !== 'paperextra'}}" class="choice" onclick="pick($idx)">{{$item.text}}</text><text if="{{$item.font === 'paperextra'}}" class="choice" onclick="pick($idx)" style="font-family:paperextra;">{{$item.text}}</text></div></scroll>
       <text class="small-action" onclick="showMenu">菜单</text>
     </div>
     <div if="{{mode === 'menu'}}" class="overlay">
@@ -36,8 +37,8 @@
       <text class="menu-action muted" onclick="toTitle">返回标题</text>
     </div>
     <div if="{{mode === 'routes' || mode === 'chapters'}}" class="full-panel">
-      <text class="panel-title">{{browseTitle}}</text><text class="panel-subtitle" style="font-family: {{browseFont}};">{{browseLabel}}</text>
-      <div class="slot-list"><div for="{{browseRows}}" tid="key" class="slot-card" onclick="selectBrowse($idx)"><text class="slot-title" style="font-family: {{$item.font}};">{{$item.name}}</text><text class="slot-meta">{{$item.detail}}</text></div></div>
+      <text class="panel-title">{{browseTitle}}</text><text if="{{browseFont !== 'paperextra'}}" class="panel-subtitle">{{browseLabel}}</text><text if="{{browseFont === 'paperextra'}}" class="panel-subtitle" style="font-family:paperextra;">{{browseLabel}}</text>
+      <div class="slot-list"><div for="{{browseRows}}" tid="key" class="slot-card" onclick="selectBrowse($idx)"><text if="{{$item.font !== 'paperextra'}}" class="slot-title">{{$item.name}}</text><text if="{{$item.font === 'paperextra'}}" class="slot-title" style="font-family:paperextra;">{{$item.name}}</text><text class="slot-meta">{{$item.detail}}</text></div></div>
       <div class="pager"><text class="pager-action" onclick="previousBrowse">‹ 上一页</text><text class="pager-action" onclick="closeBrowse">返回</text><text class="pager-action" onclick="nextBrowse">下一页 ›</text></div>
     </div>
     <div if="{{mode === 'slots'}}" class="full-panel">
@@ -45,24 +46,24 @@
       <text class="panel-subtitle">{{slotPageLabel}}</text>
       <div class="slot-list">
         <div for="{{slotRows}}" tid="number" class="slot-card" style="background-color: {{$item.occupied ? '#1d3549' : '#142535'}};" onclick="selectSlot($item.index)">
-          <text class="slot-title">{{$item.title}}</text><text class="slot-meta" style="font-family: {{$item.metaFont}};">{{$item.meta}}</text><text class="slot-preview" style="font-family: {{$item.previewFont}};">{{$item.preview}}</text>
+          <text class="slot-title">{{$item.title}}</text><text if="{{$item.metaFont !== 'paperextra'}}" class="slot-meta">{{$item.meta}}</text><text if="{{$item.metaFont === 'paperextra'}}" class="slot-meta" style="font-family:paperextra;">{{$item.meta}}</text><text if="{{$item.previewFont !== 'paperextra'}}" class="slot-preview">{{$item.preview}}</text><text if="{{$item.previewFont === 'paperextra'}}" class="slot-preview" style="font-family:paperextra;">{{$item.preview}}</text>
         </div>
       </div>
       <div class="pager"><text class="pager-action" onclick="previousSlotPage">‹ 上一页</text><text class="pager-action" onclick="closeSlots">返回</text><text class="pager-action" onclick="nextSlotPage">下一页 ›</text></div>
     </div>
     <div if="{{mode === 'overwrite'}}" class="overlay">
       <text class="menu-title">{{overwriteTitle}}</text>
-      <text class="confirm-text" style="font-family: {{overwriteFont}};">{{overwriteDetail}}</text>
+      <text if="{{overwriteFont !== 'paperextra'}}" class="confirm-text">{{overwriteDetail}}</text><text if="{{overwriteFont === 'paperextra'}}" class="confirm-text" style="font-family:paperextra;">{{overwriteDetail}}</text>
       <text class="menu-action" onclick="confirmOverwrite">确认覆盖</text><text class="menu-action muted" onclick="cancelOverwrite">取消</text>
     </div>
     <div if="{{mode === 'gallery'}}" class="full-panel">
       <text class="panel-title">CG 鉴赏</text><text class="panel-subtitle">{{galleryPageLabel}}</text>
-      <div class="gallery-row"><div for="{{galleryTop}}" tid="image" class="gallery-card" onclick="viewCg($item.index)"><image class="gallery-thumb" src="{{$item.src}}"></image><text class="gallery-caption" style="font-family: {{$item.font}};">{{$item.label}}</text></div></div>
-      <div class="gallery-row"><div for="{{galleryBottom}}" tid="image" class="gallery-card" onclick="viewCg($item.index)"><image class="gallery-thumb" src="{{$item.src}}"></image><text class="gallery-caption" style="font-family: {{$item.font}};">{{$item.label}}</text></div></div>
+      <div class="gallery-row"><div for="{{galleryTop}}" tid="image" class="gallery-card" onclick="viewCg($item.index)"><image class="gallery-thumb" src="{{$item.src}}"></image><text if="{{$item.font !== 'paperextra'}}" class="gallery-caption">{{$item.label}}</text><text if="{{$item.font === 'paperextra'}}" class="gallery-caption" style="font-family:paperextra;">{{$item.label}}</text></div></div>
+      <div class="gallery-row"><div for="{{galleryBottom}}" tid="image" class="gallery-card" onclick="viewCg($item.index)"><image class="gallery-thumb" src="{{$item.src}}"></image><text if="{{$item.font !== 'paperextra'}}" class="gallery-caption">{{$item.label}}</text><text if="{{$item.font === 'paperextra'}}" class="gallery-caption" style="font-family:paperextra;">{{$item.label}}</text></div></div>
       <div class="pager"><text class="pager-action" onclick="previousGalleryPage">‹ 上一页</text><text class="pager-action" onclick="toTitle">返回标题</text><text class="pager-action" onclick="nextGalleryPage">下一页 ›</text></div>
     </div>
     <div if="{{mode === 'cg'}}" class="cg-panel">
-      <image class="cg-image" src="{{cgSrc}}" onclick="cycleCg"></image><text class="cg-caption" style="font-family: {{cgFont}};">{{cgLabel}}</text>
+      <image class="cg-image" src="{{cgSrc}}" onclick="cycleCg"></image><text if="{{cgFont !== 'paperextra'}}" class="cg-caption">{{cgLabel}}</text><text if="{{cgFont === 'paperextra'}}" class="cg-caption" style="font-family:paperextra;">{{cgLabel}}</text>
       <div class="cg-controls"><text class="pager-action" onclick="previousCg">‹ 上一组</text><text class="pager-action" onclick="backToGallery">返回列表</text><text class="pager-action" onclick="nextCg">下一组 ›</text></div>
     </div>
     <div if="{{mode === 'end'}}" class="end-panel"><text class="game-title">{{endingLabel}}</text><text class="subtitle">可从标题选择其他篇章</text><text class="action" onclick="toTitle">返回标题</text></div>
@@ -84,7 +85,7 @@ import {portraitBox} from '../../common/portrait-layout.js';
 import {PROGRESS_KEY,emptyProgress,decodeProgress,progressFromState,withProgress} from '../../common/progress.js';
 export default {
   private:{mode:'title',backgroundSrc:'/common/title_bg.png',bodySrc:'',bodySecond:'',bodyThird:'',portraitWidth:144,portraitLeft:96,portraitSecondLeft:168,speaker:'',displayText:'',chapterLabel:'',speakerFont:'sans-serif',dialogueFont:'sans-serif',chapterFont:'sans-serif',browseFont:'sans-serif',overwriteFont:'sans-serif',cgFont:'sans-serif',
-    options:[],loading:false,errorText:'',hasNextChapter:true,fontSize:22,textSpeed:30,speedLabel:'显示速度：逐字',fontLabel:'字号：标准',progressLabel:'小米手环 8 Pro · 测试版',
+    options:[],loading:false,errorText:'',hasNextChapter:true,fontSize:22,textSpeed:30,speedLabel:'显示速度：逐字',fontLabel:'字号：标准',progressLabel:'手环 8 Pro · 测试版',
     portraitHeight:240,portraitTop:0,portraitSecondWidth:144,portraitSecondHeight:240,portraitSecondTop:0,portraitThirdWidth:112,portraitThirdHeight:240,portraitThirdTop:0,portraitThirdLeft:224,
     slotTitle:'',slotPage:0,slotPageLabel:'',slotRows:[],storageBusy:false,overwriteTitle:'',overwriteDetail:'',endingLabel:'本篇阅读完毕',
     galleryPage:0,galleryPageLabel:'',galleryTop:[],galleryBottom:[],cgIndex:0,cgVariant:0,cgSrc:'',cgLabel:'',browseRows:[],browseTitle:'',browseLabel:'',browsePage:0},
@@ -104,7 +105,7 @@ export default {
   onDestroy(){this.clearTyping();this.loadSequence++;this._slotsSequence++;this._gallerySequence++;},
   readProgress(){this.loading=true;storage.get({complete:()=>{},key:PROGRESS_KEY,default:'',success:data=>{try{this._progress=decodeProgress(data);this._progressReady=true;this.refreshProgress();this.loading=false;}catch(e){this.fail(e.message);}},fail:()=>{this.fail('通关记录读取失败，请返回标题重试');}});},
   startNew(){if(this.loading||!this._progressReady)return;this.clearTyping();this.session=withProgress(newState(catalog.flowScene,true),this._progress);this.cachedChapter=0;this._autoHops=0;this.renderFrame();},
-  refreshProgress(){this.progressLabel='小米手环 8 Pro · 测试版';},
+  refreshProgress(){this.progressLabel='手环 8 Pro · 测试版';},
   syncProgress(){
     if(!this._progressReady||this.session.progression!=='story')return;const progress=progressFromState(this.session);
     if(JSON.stringify(progress)===JSON.stringify(this._progress))return;
@@ -236,6 +237,7 @@ export default {
   toggleSpeed(){this.textSpeed=this.textSpeed===0?30:0;this.refreshSettings();this.persistSettings();},
   toggleFont(){this.fontSize=this.fontSize===22?26:22;this.refreshSettings();this.persistSettings();},
   toTitle(){if(this.storageBusy)return;this._chapterSkip=null;this.syncProgress();this.writeProgress();this.clearTyping();this.loadSequence++;this._slotsSequence++;this._gallerySequence++;this.loading=false;this.mode='title';this.backgroundSrc='/common/title_bg.png';this.bodySrc='';this.bodySecond='';this.bodyThird='';if(!this._progressReady)this.readProgress();},
+  exitApplication(){this.clearTyping();this._chapterSkip=null;this.loadSequence++;this._slotsSequence++;this._gallerySequence++;console.log('PAPER_BAND8PRO exit requested');this.$app.exit();},
   toast(message){prompt.showToast({message,duration:1500,success:()=>{},fail:()=>{},complete:()=>{}});},
   fail(message){this._chapterSkip=null;this.clearTyping();this.loading=false;this.mode='error';this.errorText=message;console.error('PAPER_BAND8PRO error',message);}
 }
@@ -247,8 +249,10 @@ export default {
 .background{width:336px;height:240px;object-fit:contain;}
 .body{position:absolute;top:0px;left:96px;width:144px;height:240px;object-fit:contain;}
 .title-panel,.dialogue-panel,.choice-panel,.end-panel{position:absolute;top:240px;left:0px;width:336px;height:240px;flex-direction:column;padding:12px 16px;}
-.title-text{font-size:26px;color:#f4f7ff;text-align:center;margin-bottom:2px;}
-.title-subtitle{font-size:16px;color:#8d9cae;text-align:center;margin-bottom:6px;}
+.title-panel{top:204px;height:276px;padding:8px 16px;background-color:#0a111f;}
+.exit-action{background-color:#51333b;}
+.title-text{height:32px;font-size:26px;color:#f4f7ff;text-align:center;margin-bottom:2px;}
+.title-subtitle{height:20px;font-size:16px;color:#8d9cae;text-align:center;margin-bottom:4px;}
 .title-action{height:34px;width:304px;margin-bottom:3px;color:#ffffff;background-color:#25445f;border-radius:10px;text-align:center;font-size:21px;}
 .game-title{font-size:25px;color:#f4f7ff;text-align:center;margin-bottom:4px;}
 .subtitle{font-size:18px;color:#8d9cae;text-align:center;margin-bottom:8px;}

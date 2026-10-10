@@ -1,0 +1,16 @@
+{
+  "version": "0.1.1",
+  "target": "Xiaomi Smart Band 8 Pro",
+  "packageSha256": "22388ea38c37f262318bc3199af81f25b56fae94ef7a49369ea077b23ea547a9",
+  "date": "2026-10-10",
+  "reportedBy": "project maintainer",
+  "result": "passed_within_reported_use",
+  "feedbackVerbatim": "测试通过，暂时未发现bug。上传github并修改论文",
+  "scope": "Physical-device retest of the delivered font-and-exit fix; no issues reported in the exercised use.",
+  "limitations": [
+    "No complete per-function checklist or test duration supplied.",
+    "No firmware version supplied.",
+    "Not evidence of every route, rare glyph or firmware being tested."
+  ],
+  "currentPackageNativeEmulator": "unavailable; see native-test-results/report-v011-unavailable.json"
+}

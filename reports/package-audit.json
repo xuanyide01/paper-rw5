@@ -1,10 +1,10 @@
 {
-  "file": "com.codex.paper.band8pro.debug.0.1.0.rpk",
-  "version": "0.1.0",
-  "bytes": 17407011,
-  "expandedBytes": 20760274,
+  "file": "com.codex.paper.band8pro.debug.0.1.1.rpk",
+  "version": "0.1.1",
+  "bytes": 17407353,
+  "expandedBytes": 20764464,
   "entries": 1053,
-  "sha256": "44615cae8b891243bff5047c7af0712096a32e16676e72d377e0c348013e72ca",
+  "sha256": "22388ea38c37f262318bc3199af81f25b56fae94ef7a49369ea077b23ea547a9",
   "certificateSha256": "4e8e1ee24968b0dad6d0956a7e14d848b38b22a203f39c389a45d8737bdc4585",
   "zipCRCValid": true,
   "outerSignatureValid": true,
@@ -16,5 +16,6 @@
   "allCommonResourcesMatchSource": true,
   "circularRGBAIcon": true,
   "textFontCoverageValid": true,
-  "physicalDeviceTested": false
+  "physicalDeviceTested": true,
+  "physicalValidationReport": "reports/physical-device-v011.json"
 }

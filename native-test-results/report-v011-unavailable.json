@@ -1,0 +1,8 @@
+{
+  "version": "0.1.1",
+  "result": "unavailable",
+  "packageSha256": "22388ea38c37f262318bc3199af81f25b56fae94ef7a49369ea077b23ea547a9",
+  "reason": "Local official emulator controller connection timed out; current-package screenshots and exit lifecycle were not verified.",
+  "priorVersion": "native-test-results/report-v010.json",
+  "physicalDeviceTested": false
+}

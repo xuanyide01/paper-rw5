@@ -2,8 +2,8 @@ const {test}=require('node:test'),assert=require('node:assert/strict'),vm=requir
 const root=path.resolve(__dirname,'..'),cat=fs.readFileSync(path.join(root,'src/common/catalog.js'),'utf8').replace('export const','const');
 const script=name=>fs.readFileSync(path.join(root,'src/common',name+'.js'),'utf8').replace(/^import[^\n]*\n/gm,'').replace(/export /g,'');
 const api=new Function(cat+['text-font','portrait-layout','progress','engine','saves','gallery','assets'].map(script).join('\n')+';return {checkpoint,portraitBox,PROGRESS_KEY,emptyProgress,decodeProgress,progressFromState,withProgress,textFont,catalog,newState,restore,readFrame,readChapterSkip,next,nextChapter,choose,previous,previewMap,SLOT_COUNT,LEGACY_KEY,slotKey,decodeSave,createSave,slotRow,imagePath,groupGallery,stepVariant};')();
-function page(settings){const pending=[],timers=[],writes=[],source=fs.readFileSync(path.join(root,'src/pages/index/index.ux'),'utf8').split('<script>')[1].split('</script>')[0].replace(/^import[^\n]*\n/gm,'').replace('export default','globalThis.page=');
- const context=vm.createContext({...api,file:{readText:o=>o.success({text:fs.readFileSync(path.join(root,'src',o.uri),'utf8')})},storage:{get:o=>pending.push(o),set:o=>writes.push(o)},prompt:{showToast(){}},console:{log(){},error(){}},Date,setTimeout:fn=>{timers.push(fn);return timers.length;},clearTimeout(){}});vm.runInContext(source,context);const p=context.page;Object.assign(p,p.private);p.onInit();pending.shift().success(JSON.stringify(settings||{}));pending.shift().success('');p.textSpeed=0;return {p,pending,timers,writes};}
+function page(settings){const pending=[],timers=[],writes=[],exits=[],source=fs.readFileSync(path.join(root,'src/pages/index/index.ux'),'utf8').split('<script>')[1].split('</script>')[0].replace(/^import[^\n]*\n/gm,'').replace('export default','globalThis.page=');
+ const context=vm.createContext({...api,$app:{exit:()=>exits.push(true)},file:{readText:o=>o.success({text:fs.readFileSync(path.join(root,'src',o.uri),'utf8')})},storage:{get:o=>pending.push(o),set:o=>writes.push(o)},prompt:{showToast(){}},console:{log(){},error(){}},Date,setTimeout:fn=>{timers.push(fn);return timers.length;},clearTimeout(){}});vm.runInContext(source,context);const p=context.page;p.$app=context.$app;Object.assign(p,p.private);p.onInit();pending.shift().success(JSON.stringify(settings||{}));pending.shift().success('');p.textSpeed=0;return {p,pending,timers,writes,exits};}
 function drain(p,timers){for(let i=0;p._chapterSkip||p.mode==='title';i++){assert.ok(i<1000);assert.ok(timers.length);timers.shift()();}}
 test('actual page starts Chinese story and reads all official grouped CG entries',()=>{const {p,timers}=page();p.startNew();drain(p,timers);assert.equal(p.mode,'play');assert.ok(/[\u4e00-\u9fff]/.test(p.fullText));p.toTitle();p.openGallery();assert.equal(p._galleryCatalog.length,80);assert.equal(p._galleryTotal,415);p.viewCg(0);assert.equal(p.mode,'cg');const src=p.cgSrc;p.cycleCg();assert.notEqual(src,p.cgSrc);});
 test('actual slot UI reads all 30 slots serially and closing it cancels late reads',()=>{const {p,pending,timers}=page();p.openSlots('load');const saved=JSON.stringify(api.createSave(api.newState(),'play',1000));for(let i=0;i<30;i++){assert.equal(pending.length,1);const r=pending.shift();assert.equal(r.key,api.slotKey(i));r.success(saved);if(i<29)timers.shift()();}assert.equal(p._slotData.length,30);assert.equal(p.loading,false);p.closeSlots();p.openSlots('load');const first=pending.shift();p.closeSlots();first.success('');assert.equal(pending.length,0);});
@@ -12,3 +12,23 @@ test('actual menu stops at the first choice and repeat skip cannot change it',()
 test('all portrait layouts maintain aspect ratio and meet the dialogue edge',()=>{const data=JSON.parse(fs.readFileSync(path.join(root,'reports/image-conversion.json'),'utf8'));for(const row of Object.values(data.images))if(row.kind==='fgimage')for(const count of [1,2,3])for(let i=0;i<count;i++){const b=api.portraitBox('/common/images/'+row.file,count,i);assert.equal(b.top+b.height,240);assert.ok(Math.abs(b.width/b.height-row.size[0]/row.size[1])<0.015);}});
 test('progress writes serialize and independent application keys keep other games separate',()=>{const {p,writes}=page();p.session=api.newState(api.catalog.initial,true);p.session.variables['sf.special']=1;p.syncProgress();assert.equal(writes.length,1);p.session.variables['sf.album_flag[0]']=true;p.syncProgress();assert.equal(writes.length,1);writes.shift().success();assert.equal(writes.length,1);writes.shift().success();assert.equal(p._progressWriteBusy,false);assert.equal(api.PROGRESS_KEY,'paper_band8pro_progress_v1');assert.match(api.slotKey(29),/^paper_/);});
 test('Band font settings survive reopening without reverting to RW5 font sizes',()=>{for(const fontSize of [22,26]){const {p,writes}=page({fontSize,textSpeed:0});assert.equal(p.fontSize,fontSize);p.toggleFont();const next=fontSize===22?26:22;assert.equal(p.fontSize,next);assert.equal(JSON.parse(writes.at(-1).value).fontSize,next);assert.equal(page(JSON.parse(writes.at(-1).value)).p.fontSize,next);}});
+
+test('default dynamic text never assigns an unregistered generic family on Band',()=>{
+ const template=fs.readFileSync(path.join(root,'src/pages/index/index.ux'),'utf8').split('</template>')[0];
+ assert.ok(!/font-family:\s*\{\{/.test(template));
+ for(const cls of ['speaker','chapter','dialogue','slot-meta','slot-preview','gallery-caption','cg-caption']){
+  const nodes=[...template.matchAll(new RegExp('<text([^>]*)class="'+cls+'"([^>]*)>','g'))].map(m=>m[1]+m[2]);
+  assert.ok(nodes.some(n=>n.includes("!== 'paperextra'")&&!n.includes('font-family')),cls);
+  assert.ok(nodes.some(n=>n.includes("=== 'paperextra'")&&n.includes('font-family:paperextra')),cls);
+ }
+});
+
+test('title exit calls system app exit even while loading and cancels pending UI work',()=>{
+ const {p,exits,writes}=page();const before=api.checkpoint(p.session),pendingWrites=writes.length;
+ p.loading=true;p.storageBusy=true;p.timer=7;p._chapterSkip={};
+ const sequences=[p.loadSequence,p._slotsSequence,p._gallerySequence];
+ p.exitApplication();
+ assert.equal(exits.length,1);assert.equal(p.timer,null);assert.equal(p._chapterSkip,null);
+ assert.deepEqual([p.loadSequence,p._slotsSequence,p._gallerySequence],sequences.map(n=>n+1));
+ assert.deepEqual(api.checkpoint(p.session),before);assert.equal(writes.length,pendingWrites);
+});

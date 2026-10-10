@@ -1,8 +1,8 @@
 {
   "package": "com.codex.paper.band8pro",
   "name": "纸上的魔法使",
-  "versionName": "0.1.0",
-  "versionCode": 1,
+  "versionName": "0.1.1",
+  "versionCode": 2,
   "minPlatformVersion": 1000,
   "minAPILevel": 1,
   "icon": "/common/logo.png",

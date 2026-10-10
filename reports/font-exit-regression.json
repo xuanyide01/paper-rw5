@@ -1,0 +1,16 @@
+{
+  "baselineVersion": "0.1.0",
+  "filesChecked": 1002,
+  "allCommonResourcesUnchanged": true,
+  "storyEngineCatalogGallerySaveCodeImagesFontsUnchanged": true,
+  "uiChanges": [
+    "dynamic default text omits font-family",
+    "explicit rare-glyph branch",
+    "title exit via $app.exit",
+    "title buttons fit screen"
+  ],
+  "physicalV010Feedback": "Title and controls display; all dynamic Chinese dialogue, speaker, route names and save metadata display as boxes.",
+  "physicalV011RetestPending": false,
+  "physicalV011Result": "passed_within_reported_use",
+  "physicalValidationReport": "reports/physical-device-v011.json"
+}
