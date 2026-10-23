@@ -110,3 +110,8 @@ npm run build
 - [星空列车与白的旅行 v1.0.0 · @liuyuze61](https://api.bandbbs.cn/wftools/bandbbs.html?code=A&state=1841662)
 
 感谢[表盘自定义工具及相关团队](https://www.bandbbs.cn/)提供安装和分享工具，感谢 Xiaomi Vela / AIoT 工具链及 Noto 字体项目。第三方与资源许可说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+
+## 联系方式
+
+问题反馈与交流：[shining237841@gmail.com](mailto:shining237841@gmail.com)。
